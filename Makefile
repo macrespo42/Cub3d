@@ -13,7 +13,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -l mlx -framework OpenGL -framework AppKit $(SRC) -o $(NAME)
+	gcc -lmlx -framework OpenGL -framework AppKit $(SRC) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
