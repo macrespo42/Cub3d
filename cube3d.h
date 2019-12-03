@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/03 14:21:29 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/03 15:32:47 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,29 @@
 # include <math.h>
 # include <mlx.h>
 # define NAME "cube3d"
-# define SKY 0x00b4c4
-# define FLOOR 0x333333
+# define SKY 0x87ceeb
+# define FLOOR 0xcd8500
 # define CUBE 0xc5002b
 
 typedef struct		s_img
 {
-	void			*id;
-	unsigned int	*data;
+	void			*ptr;
+	unsigned int	*grid;
 	int				bpp;
 	int				sl;
 	int				ed;
 }					t_img;
-/*
-**
-** bite
-**
-*/
-typedef struct		s_data
+
+typedef struct		s_mlx
 {
 	void			*mlx_ptr;
 	void			*mlx_win;
 	t_img			img;
+}					t_mlx;
+
+typedef struct		s_data
+{
+	int				x;
+	int				y;
 }					t_data;
 #endif
