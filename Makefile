@@ -6,7 +6,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 HEADER = cube3d.h
 
-SRC = main.c
+SRC = main.c \
+	close_window.c \
+	get_column.c
 
 OBJ = $(SRC:.c=.o)
 
