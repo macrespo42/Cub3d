@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:15:48 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/04 15:25:50 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define SKY 0x87ceeb
 # define FLOOR 0xcd8500
 # define CUBE 0xc5002b
+# define UP 13
+# define DOWN 1
+# define LEFT 0
+#define RIGHT 2
 
 typedef struct		s_img
 {
