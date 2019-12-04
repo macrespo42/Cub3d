@@ -6,23 +6,12 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/28 15:18:42 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:04:23 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/04 15:14:16 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 t_mlx		g_mlx;
-
-int		key_hook(int key, void *arg)
-{
-	(void)arg;
-	printf("%d\n", key);
-	if (key == 53)
-		close_window(g_mlx);
-	else if (key == 0)
-		mlx_string_put(g_mlx.ptr, g_mlx.win, 360, 240, CUBE, NAME);
-	return (key);
-}
 
 int		main(void)
 {
@@ -41,7 +30,7 @@ int		main(void)
 	i = 0;
 	while (i < data.x)
 	{
-		i = get_column(&img, data, i, g_mlx);
+		i = get_column(&img, data, i);
 		i = (i - (data.x * data.y)) + 1;
 	}
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, img.ptr, 0, 0);

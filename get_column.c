@@ -6,13 +6,13 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:56:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:00:45 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/04 15:13:45 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		get_column(t_img *img, t_data data, int column, t_mlx g_mlx)
+int		get_column(t_img *img, t_data data, int column)
 {
 	while (column < (data.x * data.y))
 	{

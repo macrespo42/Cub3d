@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:03:42 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/04 15:15:48 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct		s_data
 	int				y;
 }					t_data;
 
-int					close_window(t_mlx g_mlx);
-int					get_column(t_img *img, t_data data, int column, t_mlx g_mlx);
+int					close_window(void);
+int					get_column(t_img *img, t_data data, int column);
+int					key_hook(int key, void *arg);
+extern t_mlx		g_mlx;
 #endif
