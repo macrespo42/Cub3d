@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:25:50 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:02:31 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string.h>
 # include <math.h>
 # include <mlx.h>
-# define NAME "cube3d"
+# define NAME "Cub3D"
 # define SKY 0x87ceeb
 # define FLOOR 0xcd8500
 # define CUBE 0xc5002b

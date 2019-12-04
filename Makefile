@@ -1,4 +1,4 @@
-NAME = cube3d
+NAME = Cub3D
 
 CC = gcc
 
@@ -30,7 +30,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	./cube3d
+	./$(NAME)
 
 norm:
 	norminette $(SRC) $(HEADER)
