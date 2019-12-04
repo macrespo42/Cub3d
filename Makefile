@@ -16,7 +16,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -lmlx -framework OpenGL -framework AppKit $(SRC) -o $(NAME)
+	gcc -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
@@ -29,7 +29,7 @@ fclean: clean
 
 re: fclean all
 
-test: all
+test: re
 	./cube3d
 
 norm:
