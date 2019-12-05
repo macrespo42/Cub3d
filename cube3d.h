@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 16:02:31 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/05 16:49:21 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <math.h>
 # include <mlx.h>
+# include "parser/parser.h"
 # define NAME "Cub3D"
 # define SKY 0x87ceeb
 # define FLOOR 0xcd8500
@@ -24,7 +25,7 @@
 # define UP 13
 # define DOWN 1
 # define LEFT 0
-#define RIGHT 2
+# define RIGHT 2
 
 typedef struct		s_img
 {
