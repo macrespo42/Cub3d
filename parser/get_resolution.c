@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   p_atoi.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/05 13:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/06 15:02:27 by macrespo         ###   ########.fr       */
+/*   Created: 2019/12/05 22:35:41 by macrespo          #+#    #+#             */
+/*   Updated: 2019/12/05 22:40:07 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
-# define BUFFER_SIZE 4096
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "get_next_line/get_next_line.h"
+#include "parser.h"
 
-typedef struct		s_data
+int		p_atoi(char const *s, int *pos)
 {
-	int				x;
-	int				y;
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
-	char			*s;
-	int				f[3];
-	int				c[3];
-	char			**map;
-}					t_data;
+	int		res;
 
-int					get_resolution(char const *s, int *pos)
-extern t_data		g_data;
-#endif
+	res = 0;
+	while (s[*pos] == '\t' || s[*pos] == '\n' || s[*pos] == '\r' || s[*pos] == '\v'
+	|| s[*pos] == '\f' || s[*pos] == ' ')
+		*pos += 1;
+	while (s[*pos] >= '0' && s[*pos] <= '9')
+	{
+		res = res * 10 + s[*pos] - '0';
+		*pos++;
+	}
+	return (res);
+}

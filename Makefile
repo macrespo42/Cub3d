@@ -9,7 +9,7 @@ HEADER = cube3d.h
 SRC = main.c \
 	close_window.c \
 	get_column.c \
-	key_hook.c
+	key_hook.c \
 
 OBJ = $(SRC:.c=.o)
 
