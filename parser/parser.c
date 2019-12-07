@@ -6,15 +6,15 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/06 14:40:59 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/07 18:54:44 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-t_data		g_data
+t_data	g_data;
 
-void	which_data(const char *line)
+static void		which_data(const char *line)
 {
 	int		i;
 
@@ -38,7 +38,7 @@ void	which_data(const char *line)
 		g_data.s = get_path(line, i);
 }
 
-int		parser(const char *file)
+int				parser(const char *file)
 {
 	int		ret;
 	int		fd;
@@ -51,6 +51,7 @@ int		parser(const char *file)
 		ret = get_next_line(fd, &line);
 		which_data(line);
 		printf("%s\n", line);
+		free(line);
 	}
 	return (0);
 }
