@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/07 18:54:44 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/09 10:57:29 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ static void		which_data(const char *line)
 		g_data.y = get_resolution(line, &i);
 	}
 	else if (line[i] == 'N' && line[i + 1] == 'O')
-		g_data.no = get_path(line, i);
+		g_data.no = get_path(line, i + 2);
 	else if (line[i] == 'S' && line[i + 1] == 'O')
-		g_data.so = get_path(line, i);
+		g_data.so = get_path(line, i + 2);
 	else if (line[i] == 'W' && line[i + 1] == 'E')
-		g_data.we = get_path(line, i);
+		g_data.we = get_path(line, i + 2);
 	else if (line[i] == 'E' && line[i + 1] == 'A')
-		g_data.ea = get_path(line, i);
+		g_data.ea = get_path(line, i + 2);
 	else if (line[i] == 'S')
-		g_data.s = get_path(line, i);
+		g_data.s = get_path(line, i + 1);
 }
 
 int				parser(const char *file)
