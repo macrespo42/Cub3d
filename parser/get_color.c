@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 12:57:35 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/09 13:14:14 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/09 13:42:41 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static int		p_atoi(const char *str, int *pos)
 		res = res * 10 + str[*pos] - '0';
 		(*pos)++;
 	}
-	(*pos)--;
+	if (str[*pos] != ',')
+		(*pos)--;
 	return (res);
 }
 void				get_color(const char *s, char f_c)
@@ -37,7 +38,7 @@ void				get_color(const char *s, char f_c)
 	rgb[0] = p_atoi(s, &i);
 	i += 1;
 	rgb[1] = p_atoi(s, &i);
-	i +=1;
+	i += 1;
 	rgb[2] = p_atoi(s, &i);
 	if (f_c == 'F')
 		g_data.f = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
