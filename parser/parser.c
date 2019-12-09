@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/09 10:57:29 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/09 13:07:15 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ static void		which_data(const char *line)
 		g_data.ea = get_path(line, i + 2);
 	else if (line[i] == 'S')
 		g_data.s = get_path(line, i + 1);
+	else if (line[i] == 'F' || line[i] == 'C')
+		get_color(line, line[i]);
+	else if (line[i] == 'C')
+		get_color(line, line[i]);
 }
 
 int				parser(const char *file)
