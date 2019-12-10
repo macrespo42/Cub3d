@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 15:53:29 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:01:05 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ static void		which_data(const char *line)
 		get_color(line, i);
 }
 
+static int		check_cubext(const char *file)
+{
+	int		len;
+	int		i;
+
+	len = ft_strlen(file) - 1;
+	if (file[len] == 'b' && file[len - 1] == 'u' && file[len - 2] == 'c')
+	{
+		if (file[len - 3] == '.')
+			return (1);
+	}
+	write(1, "Bad file type\n", 14);
+	return (-1);
+}
+
 int				parser(const char *file)
 {
 	int		ret;
@@ -47,7 +62,7 @@ int				parser(const char *file)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
-	ret = 1;
+	ret = check_cubext(file);
 	while (ret > 0)
 	{
 		ret = get_next_line(fd, &line);
@@ -55,5 +70,5 @@ int				parser(const char *file)
 		printf("%s\n", line);
 		free(line);
 	}
-	return (0);
+	return (ret);
 }
