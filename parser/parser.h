@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 13:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 14:47:08 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/10 15:46:53 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ char				*get_path(const char *s, int pos);
 int					get_resolution(const char *s, int *pos);
 int					ft_isspace(char c);
 int					parser(const char *file);
-void				get_color(const char *s, char f_c);
+void				get_color(const char *s, int pos);
 extern t_data		g_data;
 #endif
