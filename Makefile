@@ -18,6 +18,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	gcc -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
 
+linux: $(OBJ)
+	gcc -lm -lmlx -lXext -lX11 -L ./libft.a -lpthread $(OBJ) -o $(NAME)
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 
