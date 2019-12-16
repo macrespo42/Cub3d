@@ -6,23 +6,23 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:56:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:23:48 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:18:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		get_column(t_img *img, t_data data, int column)
+int		get_column(t_img *img, int column)
 {
-	while (column < (data.x * data.y) / 2)
+	while (column < (g_data.x * g_data.y) / 2)
 	{
-		img->grid[column] = mlx_get_color_value(g_mlx.ptr, SKY);
-		column += data.x;
+		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
+		column += g_data.x;
 	}
-	while (column < (data.x * data.y))
+	while (column < (g_data.x * g_data.y))
 	{
-		img->grid[column] = mlx_get_color_value(g_mlx.ptr, FLOOR);
-		column += data.x;
+		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.c);
+		column += g_data.x;
 	}
 	return (column);
 }

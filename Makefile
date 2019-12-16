@@ -10,6 +10,13 @@ SRC = main.c \
 	close_window.c \
 	get_column.c \
 	key_hook.c \
+	ft_isspace.c \
+	get_color.c \
+	get_next_line_utils.c \
+	get_next_line.c \
+	get_path.c \
+	get_resolution.c \
+	parser.c
 
 OBJ = $(SRC:.c=.o)
 

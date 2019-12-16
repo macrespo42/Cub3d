@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 12:57:35 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 15:59:35 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:19:59 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void				get_color(const char *s, int pos)
 	{
 		pos++;
 		rgb[i] = p_atoi(s, &pos);
-		printf("RGB : %d\n", rgb[i]);
 		i++;
 	}
 	if (c == 'F')

@@ -5,33 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/28 15:18:42 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/04 15:14:16 by macrespo         ###   ########.fr       */
+/*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
+/*   Updated: 2019/12/16 17:01:06 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "cube3d.h"
 t_mlx		g_mlx;
+t_data		g_data;
 
-int		main(void)
+int		main(int ac, char **av)
 {
 	t_img	img;
-	t_data	data;
 	int		i;
 
-	data.x = 720;
-	data.y = 480;
-	if ((g_mlx.ptr = mlx_init()) == NULL)
+	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1 || ac < 2)
 		return (EXIT_FAILURE);
-	if (!(g_mlx.win = mlx_new_window(g_mlx.ptr, 720, 480, NAME)))
+	if (!(g_mlx.win = mlx_new_window(g_mlx.ptr, g_data.x, g_data.y, NAME)))
 		return (EXIT_FAILURE);
-	img.ptr = mlx_new_image(g_mlx.ptr, 720, 480);
+	img.ptr = mlx_new_image(g_mlx.ptr, g_data.x, g_data.y);
 	img.grid = (unsigned int*)mlx_get_data_addr(img.ptr, &img.bpp, &img.sl, &img.ed);
 	i = 0;
-	while (i < data.x)
+	while (i < g_data.x)
 	{
-		i = get_column(&img, data, i);
-		i = (i - (data.x * data.y)) + 1;
+		i = get_column(&img, i);
+		i = (i - (g_data.x * g_data.y)) + 1;
 	}
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, img.ptr, 0, 0);
 	mlx_key_hook(g_mlx.win, key_hook, NULL);
