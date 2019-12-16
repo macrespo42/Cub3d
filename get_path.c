@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 17:28:52 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 14:48:21 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:51:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_path(const char *s, int pos)
 	i = pos;
 	while (s[i++])
 		size_alloc++;
-	if (!(path = malloc(sizeof(char) * ( size_alloc + 1))))
+	if (!(path = malloc(sizeof(char) * (size_alloc + 1))))
 		return (NULL);
 	i = 0;
 	while (s[pos])

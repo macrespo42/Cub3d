@@ -6,12 +6,13 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:01:06 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/16 17:49:19 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "cube3d.h"
+
 t_mlx		g_mlx;
 t_data		g_data;
 
