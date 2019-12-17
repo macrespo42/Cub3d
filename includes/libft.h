@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:48:52 by macrespo          #+#    #+#             */
-/*   Updated: 2019/10/31 09:38:33 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/17 16:45:01 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# define BUFFER_SIZE 1046
+# define BUFFER_SIZE 4096
 
 typedef struct		s_list
 {

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:57:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/17 16:35:51 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <math.h>
-# include <mlx.h>
+# include "mlx.h"
 # include "parser.h"
 # define NAME "Cub3D"
 # define WALL 0xc5002b
