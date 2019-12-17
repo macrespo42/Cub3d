@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 13:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/17 15:50:04 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:44:29 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_data
 }					t_data;
 
 char				*get_path(const char *s, int pos);
+char				**parse_map(const char *line, int *size);
 int					get_resolution(const char *s, int *pos);
 int					ft_isspace(char c);
 int					parser(const char *file);

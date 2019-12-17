@@ -18,6 +18,7 @@ SRC = main.c \
 	get_color.c \
 	get_path.c \
 	get_resolution.c \
+	parse_map.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
