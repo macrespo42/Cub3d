@@ -2,9 +2,13 @@ NAME = Cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes/
 
 HEADER = cube3d.h
+
+LXFLAGS = -framework OpenGL -framework AppKit
+
+MLX = minilibx_opengl
 
 SRC = main.c \
 	close_window.c \
@@ -12,8 +16,6 @@ SRC = main.c \
 	key_hook.c \
 	ft_isspace.c \
 	get_color.c \
-	get_next_line_utils.c \
-	get_next_line.c \
 	get_path.c \
 	get_resolution.c \
 	parser.c
@@ -23,10 +25,9 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -lmlx -framework OpenGL -framework AppKit $(OBJ) -o $(NAME)
-
-linux: $(OBJ)
-	gcc -lm -lmlx -lXext -lX11 -L ./libft.a -lpthread $(OBJ) -o $(NAME)
+	@make -C libft/
+	@make -C minilibx_opengl/
+	gcc $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<

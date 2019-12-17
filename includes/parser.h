@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 13:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 15:46:53 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:50:04 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h>
-# include "get_next_line.h"
+# include <stdlib.h>
+# include "libft.h"
 
 typedef struct		s_data
 {
