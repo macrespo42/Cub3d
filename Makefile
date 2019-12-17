@@ -1,6 +1,6 @@
 NAME = Cub3D
 
-CC = gcc
+CC = clang
 
 CFLAGS = -Wall -Wextra -Werror -I includes/
 
@@ -27,7 +27,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C libft/
 	@make -C minilibx_opengl/
-	gcc $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
+	$(CC) $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
@@ -41,7 +41,7 @@ fclean: clean
 re: fclean all
 
 test: re
-	./$(NAME)
+	./$(NAME) tests/map.cub
 
 norm:
 	norminette $(SRC) $(HEADER)
