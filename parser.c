@@ -6,13 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:20:10 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/17 16:15:12 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
-
-t_data	g_data;
 
 static void		which_data(const char *line)
 {
