@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:49:19 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:22:16 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		main(int ac, char **av)
 {
 	t_img	img;
 	int		i;
+	double	dist;
 
 	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1 || ac < 2)
 		return (EXIT_FAILURE);
@@ -30,7 +31,8 @@ int		main(int ac, char **av)
 	i = 0;
 	while (i < g_data.x)
 	{
-		i = get_column(&img, i);
+		dist = 2;
+		i = get_column(&img, i, g_data.y / dist);
 		i = (i - (g_data.x * g_data.y)) + 1;
 	}
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, img.ptr, 0, 0);

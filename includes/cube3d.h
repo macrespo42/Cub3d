@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/17 16:35:51 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/18 14:54:55 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct		s_rc
 }					t_rc;
 
 int					close_window(void);
-int					get_column(t_img *img, int column);
+int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
 extern t_mlx		g_mlx;
 #endif
