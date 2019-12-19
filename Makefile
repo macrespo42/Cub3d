@@ -19,6 +19,7 @@ SRC = main.c \
 	get_path.c \
 	get_resolution.c \
 	parse_map.c \
+	get_range.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
@@ -41,7 +42,7 @@ fclean: clean
 
 re: fclean all
 
-test: re
+test: all
 	./$(NAME) tests/map.cub
 
 norm:

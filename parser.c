@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/18 12:18:24 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/19 12:41:39 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,16 @@ static int		check_cubext(const char *file)
 	return (-1);
 }
 
+void	print_map()
+{
+	int		i = 0;
+	while (g_data.map[i])
+	{
+		printf("%s\n", g_data.map[i]);
+		i++;
+	}
+}
+
 int				parser(const char *file)
 {
 	int		ret;
@@ -72,5 +82,6 @@ int				parser(const char *file)
 		}
 		free(line);
 	}
+	print_map();
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:27:50 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/18 11:42:45 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/19 12:50:49 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char		*trim_map(char *line)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (i < size)
+	while (line[i])
 	{
 		if (is_map(line[i]) == 1)
 			new_map[j++] = line[i];
