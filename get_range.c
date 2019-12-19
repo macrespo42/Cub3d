@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 11:23:39 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/19 12:53:27 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/19 14:10:46 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,12 @@ static t_cam		cam_infos()
 double				get_range()
 {
 	t_cam	cam;
+	double	x_hit;
+	double	y_hit;
 
+	y_hit = 4;
+	x_hit = 26;
 	cam = cam_infos();
-	printf("POS CAM : x : %d | y : %d\n", cam.x, cam.y);
-	return (pow(cam.x - cam.y, 2) + pow(5 - 3, 2));
+	printf("POS : [x = %d] and [y = %d]\n", cam.x, cam.y);
+	return (hypot(cam.x - x_hit, cam.y - y_hit));
 }

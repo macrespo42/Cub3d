@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:56:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/18 15:39:08 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/19 12:59:36 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		get_column(t_img *img, int column, int size_wall)
 	int		px;
 
 	px = 0;
+	if (size_wall % 2 != 0)
+		size_wall += 1;
 	while (column < g_data.x * (g_data.y - size_wall) / 2)
 	{
 		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
