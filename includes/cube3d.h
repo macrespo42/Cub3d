@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/19 11:46:28 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:35:24 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 # include "parser.h"
 # define NAME "Cub3D"
 # define WALL 0xc5002b
-# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
+# define ESC 53
+# define W 13
+# define S 1
+# define A 0
+# define D 2
 
 typedef struct		s_img
 {
@@ -43,14 +44,24 @@ typedef struct		s_mlx
 
 typedef struct		s_cam
 {
-	int		x;
-	int		y;
-	char	orientation;
+	double	x;
+	double	y;
+	double	d_y;
+	double	d_x;
+	char	dir;
 }					t_cam;
+
+typedef struct		s_hit
+{
+	double	x;
+	double	y;
+
+}					t_hit;
 
 double				get_range();
 int					close_window(void);
 int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
+t_hit				get_wall_dist(t_cam cam);
 extern t_mlx		g_mlx;
 #endif
