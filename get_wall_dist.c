@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/20 16:21:07 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:44:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static t_hit		get_wall_dist_north(t_cam cam)
 {
 	t_hit	hit;
 
-	hit.x = cam.x + (cam.y - floor(cam.y)) * (cam.d_x / cam.d_y);
-	hit.y = floor(cam.y);
+	hit.x = cam.x + (cam.y - cam.y - 1) * (cam.d_x / cam.d_y);
+	hit.y = cam.y - 1;
 	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
 	{
 		hit.y += -1;
@@ -58,8 +58,8 @@ static t_hit		get_wall_dist_west(t_cam cam)
 {
 	t_hit	hit;
 
-	hit.y = cam.y + (cam.x - floor(cam.x)) * (cam.d_y / cam.d_x);
-	hit.x = floor(cam.x);
+	hit.y = cam.y + (cam.x - ceil(cam.x)) * (cam.d_y / cam.d_x);
+	hit.x = ceil(cam.x);
 	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
 	{
 		hit.x += -1;
