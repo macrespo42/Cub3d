@@ -21,6 +21,7 @@ SRC = main.c \
 	parse_map.c \
 	get_range.c \
 	get_wall_dist.c \
+	cam_infos.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
@@ -33,7 +34,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
 
 %.o: %.c
-	$(CC) -I includes/ -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -f $(OBJ)
