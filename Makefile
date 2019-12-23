@@ -21,7 +21,6 @@ SRC = main.c \
 	parse_map.c \
 	get_range.c \
 	get_wall_dist.c \
-	vertical_move.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)

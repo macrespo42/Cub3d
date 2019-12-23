@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/20 17:44:40 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:21:30 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ static t_hit		get_wall_dist_west(t_cam cam)
 {
 	t_hit	hit;
 
-	hit.y = cam.y + (cam.x - ceil(cam.x)) * (cam.d_y / cam.d_x);
-	hit.x = ceil(cam.x);
+	hit.y = cam.y + (cam.x - cam.x - 1) * (cam.d_y / cam.d_x);
+	hit.x = cam.x - 1;
 	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
 	{
-		hit.x += -1;
+		hit.x -= 1;
 		hit.y += cam.d_y / cam.d_x;
 	}
 	return (hit);
