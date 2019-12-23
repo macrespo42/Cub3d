@@ -22,6 +22,8 @@ SRC = main.c \
 	get_range.c \
 	get_wall_dist.c \
 	cam_infos.c \
+	draw.c \
+	vertical_move.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
