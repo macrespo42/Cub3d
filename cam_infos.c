@@ -6,11 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:25:12 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:45:39 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 static int			is_pos(char c, t_cam *cam)
 {

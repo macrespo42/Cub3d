@@ -6,11 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:21:30 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:46:21 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 static t_hit		get_wall_dist_north(t_cam cam)
 {

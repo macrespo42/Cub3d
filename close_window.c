@@ -6,11 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:57:06 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:50:04 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:45:45 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 int		close_window(void)
 {

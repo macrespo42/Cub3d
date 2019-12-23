@@ -6,11 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 11:23:39 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/20 18:35:31 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:45:58 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
 double				get_range(t_cam cam)
 {
