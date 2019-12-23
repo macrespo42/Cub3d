@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:45:39 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 12:00:43 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ static int			is_pos(char c, t_cam *cam)
 	return (0);
 }
 
-t_cam				cam_infos()
+t_cam				cam_infos(void)
 {
 	int		i;
 	int		j;
 	t_cam	cam;
 
 	i = 0;
-	while(g_data.map[i])
+	while (g_data.map[i])
 	{
 		j = 0;
 		while (g_data.map[i][j])

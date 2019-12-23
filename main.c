@@ -6,10 +6,9 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:45:27 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 12:02:25 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "cub3d.h"
 
@@ -19,8 +18,10 @@ t_data		g_data;
 static void		draw(t_img *img, t_cam *cam)
 {
 	int		i;
+
 	img->ptr = mlx_new_image(g_mlx.ptr, g_data.x, g_data.y);
-	img->grid = (unsigned int*)mlx_get_data_addr(img->ptr, &img->bpp, &img->sl, &img->ed);
+	img->grid =
+	(unsigned int*)mlx_get_data_addr(img->ptr, &img->bpp, &img->sl, &img->ed);
 	*cam = cam_infos();
 	i = 0;
 	while (i < g_data.x)
@@ -31,7 +32,7 @@ static void		draw(t_img *img, t_cam *cam)
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, img->ptr, 0, 0);
 }
 
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_img	img;
 	t_cam	cam;

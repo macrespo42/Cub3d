@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:27:50 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/19 12:50:49 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 12:01:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int		size_trim(char *line)
 {
 	int		i;
 	int		size;
-
 
 	size = 0;
 	i = 0;
@@ -76,5 +75,5 @@ char			**parse_map(const char *line, int *size)
 	map_tmp[*size] = trim_map((char*)line);
 	map_tmp[*size + 1] = NULL;
 	(*size)++;
-	return(map_tmp);
+	return (map_tmp);
 }

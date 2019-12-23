@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                           :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:25:22 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/23 12:00:27 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct		s_mlx
 {
 	void			*ptr;
 	void			*win;
-	t_img			img;
 }					t_mlx;
 
 typedef struct		s_cam
@@ -62,7 +61,7 @@ double				get_range(t_cam cam);
 int					close_window(void);
 int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
-t_cam				cam_infos();
+t_cam				cam_infos(void);
 t_hit				get_wall_dist(t_cam cam);
 void				vertical_move(int event, t_cam *cam);
 extern t_mlx		g_mlx;
