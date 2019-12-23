@@ -34,7 +34,7 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $<
+	$(CC) -I includes/ -c $<
 
 clean:
 	rm -f $(OBJ)
