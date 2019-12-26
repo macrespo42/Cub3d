@@ -23,7 +23,7 @@ SRC = main.c \
 	get_wall_dist.c \
 	cam_infos.c \
 	draw.c \
-	vertical_move.c \
+	move.c \
 	rotate.c \
 	parser.c
 
