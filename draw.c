@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 13:59:56 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 16:36:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	draw(t_draw *d_infos)
 
 	d_infos->img.ptr = mlx_new_image(g_mlx.ptr, g_data.x, g_data.y);
 	d_infos->img.grid =
-	(unsigned int*)mlx_get_data_addr(d_infos->img.ptr, &d_infos->img.bpp, &d_infos->img.sl, &d_infos->img.ed);
+	(unsigned int*)mlx_get_data_addr
+(d_infos->img.ptr, &d_infos->img.bpp, &d_infos->img.sl, &d_infos->img.ed);
 	i = 0;
 	while (i < g_data.x)
 	{
