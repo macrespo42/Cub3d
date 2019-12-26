@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 15:04:06 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 11:54:28 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define S 1
 # define A 0
 # define D 2
+# define LEFT 123
+# define RIGHT 124
+# define TURN 0.05
 
 typedef struct		s_img
 {
@@ -70,7 +73,8 @@ int					key_hook(int key, void *arg);
 t_cam				cam_infos(void);
 t_hit				get_wall_dist(t_cam cam);
 void				draw(t_draw *d_infos);
-void				vertical_move(int event, t_draw *d_infos);
 void				horizontal_move(int event, t_draw *infos);
+void				rotate(int event, t_draw *dir);
+void				vertical_move(int event, t_draw *d_infos);
 extern t_mlx		g_mlx;
 #endif

@@ -24,6 +24,7 @@ SRC = main.c \
 	cam_infos.c \
 	draw.c \
 	vertical_move.c \
+	rotate.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)

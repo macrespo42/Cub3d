@@ -6,14 +6,23 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:14:55 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 17:18:48 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 11:55:00 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cube3d.h"
+#include "cub3d.h"
 
-void	rotate(t_draw *dir)
+void	rotate(int event, t_draw *dir)
 {
-	dir->cam.d_x = dir->cam.d_x * cos(0.05) - dir->cam.d_y * sin(0.05);
-	dir->cam.d_y = dir->cam.d_x * sin(0.05) + dir->cam.d_y * cos(0.05);
+	if (event == RIGHT)
+	{
+		dir->cam.d_x = dir->cam.d_x * cos(TURN) - dir->cam.d_y * sin(TURN);
+		dir->cam.d_y = dir->cam.d_x * sin(TURN) + dir->cam.d_y * cos(TURN);
+	}
+	if (event == LEFT)
+	{
+		dir->cam.d_x = dir->cam.d_x * cos(-TURN) - dir->cam.d_y * sin(-TURN);
+		dir->cam.d_y = dir->cam.d_x * sin(-TURN) + dir->cam.d_y * cos(-TURN);
+	}
+	draw(dir);
 }
