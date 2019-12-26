@@ -6,13 +6,13 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 22:35:41 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 14:50:10 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 13:47:06 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-int		get_resolution(const char *s, int *pos)
+int		parse_resolution(const char *s, int *pos)
 {
 	int		res;
 

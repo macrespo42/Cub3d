@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 11:59:42 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 13:48:49 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ static void		which_data(const char *line)
 		i++;
 	if (line[i] == 'R')
 	{
-		g_data.x = get_resolution(line, &i);
-		g_data.y = get_resolution(line, &i);
+		g_data.x = parse_resolution(line, &i);
+		g_data.y = parse_resolution(line, &i);
 	}
 	else if (line[i] == 'N' && line[i + 1] == 'O')
-		g_data.no = get_path(line, i + 2);
+		g_data.no = parse_path(line, i + 2);
 	else if (line[i] == 'S' && line[i + 1] == 'O')
-		g_data.so = get_path(line, i + 2);
+		g_data.so = parse_path(line, i + 2);
 	else if (line[i] == 'W' && line[i + 1] == 'E')
-		g_data.we = get_path(line, i + 2);
+		g_data.we = parse_path(line, i + 2);
 	else if (line[i] == 'E' && line[i + 1] == 'A')
-		g_data.ea = get_path(line, i + 2);
+		g_data.ea = parse_path(line, i + 2);
 	else if (line[i] == 'S')
-		g_data.s = get_path(line, i + 1);
+		g_data.s = parse_path(line, i + 1);
 	else if (line[i] == 'F' || line[i] == 'C')
-		get_color(line, i);
+		parse_color(line, i);
 }
 
 static int		check_cubext(const char *file)

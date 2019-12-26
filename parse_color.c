@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_color.c                                        :+:      :+:    :+:   */
+/*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 12:57:35 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:50:53 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 13:43:49 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int		p_atoi(const char *str, int *pos)
 	return (res);
 }
 
-void			get_color(const char *s, int pos)
+void			parse_color(const char *s, int pos)
 {
 	int		rgb[3];
 	int		i;

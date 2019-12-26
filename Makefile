@@ -15,9 +15,9 @@ SRC = main.c \
 	get_column.c \
 	key_hook.c \
 	ft_isspace.c \
-	get_color.c \
-	get_path.c \
-	get_resolution.c \
+	parse_color.c \
+	parse_path.c \
+	parse_resolution.c \
 	parse_map.c \
 	get_range.c \
 	get_wall_dist.c \

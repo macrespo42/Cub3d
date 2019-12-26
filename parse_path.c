@@ -6,13 +6,13 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 17:28:52 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/16 17:51:34 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/26 13:48:32 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 
-char	*get_path(const char *s, int pos)
+char	*parse_path(const char *s, int pos)
 {
 	char	*path;
 	int		i;
