@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/30 15:43:46 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/30 16:34:48 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define LEFT 123
 # define RIGHT 124
 # define TURN 0.05
+# define FOV 33
 
 typedef struct		s_img
 {
@@ -64,6 +65,7 @@ typedef struct		s_ray
 {
 	double	x;
 	double	y;
+	int		i;
 }					t_ray;
 
 typedef struct		s_draw
