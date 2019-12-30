@@ -25,6 +25,7 @@ SRC = main.c \
 	draw.c \
 	move.c \
 	rotate.c \
+	ray.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
