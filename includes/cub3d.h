@@ -6,12 +6,12 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/30 15:08:30 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:43:46 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
@@ -66,7 +66,7 @@ typedef struct		s_ray
 	double	y;
 }					t_ray;
 
-typedef struct 		s_draw
+typedef struct		s_draw
 {
 	t_cam	cam;
 	t_img	img;
