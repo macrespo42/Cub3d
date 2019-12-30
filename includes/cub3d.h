@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/26 13:52:04 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:08:30 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,17 @@ typedef struct		s_hit
 
 }					t_hit;
 
+typedef struct		s_ray
+{
+	double	x;
+	double	y;
+}					t_ray;
+
 typedef struct 		s_draw
 {
 	t_cam	cam;
 	t_img	img;
+	t_ray	ray;
 }					t_draw;
 
 double				get_range(t_cam cam);
