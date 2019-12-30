@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:14:55 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/30 15:30:50 by macrespo         ###   ########.fr       */
+/*   Updated: 2019/12/30 16:00:38 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	rotate(int event, t_draw *dir)
 		dir->cam.d_y = dir->cam.d_x * sin(-TURN) + dir->cam.d_y * cos(-TURN);
 	}
 	dist = hypot(dir->cam.d_x, dir->cam.d_y);
-	printf("dist : %f\n", hypot(dir->cam.d_x, dir->cam.d_y));
 	dir->cam.d_x /= dist;
 	dir->cam.d_y /= dist;
-	printf("dist : %f\n", hypot(dir->cam.d_x, dir->cam.d_y));
 	draw(dir);
 }
