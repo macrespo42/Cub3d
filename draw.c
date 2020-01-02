@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/30 17:13:58 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/02 13:51:15 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw(t_draw *d_infos)
 	while (d_infos->ray.i < g_data.x)
 	{
 		ray(d_infos);
-		range = g_data.y / get_range(d_infos->cam);
+		range = g_data.y / get_range(*d_infos);
 		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
