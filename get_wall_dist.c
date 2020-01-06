@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/06 17:13:59 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/06 19:43:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,57 +26,82 @@ static t_hit		get_wall_dist_north(t_draw draw)
 	return (hit);
 }
 
-static t_hit		get_wall_dist_south(t_draw draw)
+static t_hit		get_wall_dist_se(t_draw d)
 {
 	t_hit	v;
 	t_hit	h;
+	double	h_hit;
 
-	v.x = draw.cam.x + (draw.cam.y - ceil(draw.cam.y)) * (draw.ray.x / draw.ray.y);
-	v.y = ceil(draw.cam.y);
-	while (g_data.map[(int)floor(v.y)][(int)floor(v.x)] != '1')
+	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
+	v.y = ceil(d.cam.y);
+	while (wall_hit_v(v) == 1)
 	{
 		v.y += 1;
-		v.x += draw.ray.x / draw.ray.y;
+		v.x += d.ray.x / d.ray.y;
 	}
-	h.y = draw.cam.y + (draw.cam.x - ceil(draw.cam.x)) * (draw.ray.y / draw.ray.x);
-	h.x = ceil(draw.cam.x);
-	while (g_data.map[(int)floor(h.y)][(int)floor(h.x)] != '1')
+	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
+	h.x = ceil(d.cam.x);
+	while (wall_hit_h(h) == 1)
 	{
 		h.x += 1;
-		h.y += draw.ray.y / draw.ray.x;
+		h.y += d.ray.y / d.ray.x;
 	}
-	if (hypot(draw.cam.x - h.x, draw.cam.y - h.y) < hypot(draw.cam.x - v.x, draw.cam.y - v.y))
+	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
+	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
 		return (h);
-	else
-		return (v);
+	return (v);
 }
 
-static t_hit		get_wall_dist_east(t_draw draw)
+static t_hit		get_wall_dist_ne(t_draw d)
 {
-	t_hit	hit;
+	t_hit	v;
+	t_hit	h;
+	double	h_hit;
 
-	hit.y = draw.cam.y + (draw.cam.x - floor(draw.cam.x)) * (draw.ray.y / draw.ray.x);
-	hit.x = floor(draw.cam.x);
-	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
+	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
+	v.y = ceil(d.cam.y);
+	while (wall_hit_v(v) == 1)
 	{
-		hit.x += 1;
-		hit.y += draw.ray.y / draw.ray.x;
+		v.y += 1;
+		v.x += d.ray.x / d.ray.y;
 	}
-	return (hit);
+	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
+	h.x = ceil(d.cam.x);
+	while (wall_hit_h(h) == 1)
+	{
+		h.x += 1;
+		h.y += d.ray.y / d.ray.x;
+	}
+	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
+	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
+		return (h);
+	return (v);
 }
 
-static t_hit		get_wall_dist_west(t_draw draw)
+static t_hit		get_wall_dist_so(t_draw d)
 {
-	t_hit	hit;
+	t_hit	v;
+	t_hit	h;
+	double	h_hit;
 
-	hit.y = draw.cam.y + (draw.cam.x - draw.cam.x - 1) * (draw.ray.y / draw.ray.x);
-	hit.x = draw.cam.x - 1;
-	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
+	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
+	v.y = ceil(d.cam.y);
+	while (wall_hit_v(v) == 1)
 	{
-		hit.x -= 1;
-		hit.y += draw.ray.y / draw.ray.x;
+		v.y += 1;
+		v.x += d.ray.x / d.ray.y;
 	}
-	return (hit);
+	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
+	h.x = floor(d.cam.x);
+	while (wall_hit_h(h) == 1)
+	{
+		h.x -= 1;
+		h.y -= d.ray.y / d.ray.x;
+	}
+	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
+	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
+		return (h);
+	return (v);
 }
 
 t_hit				get_wall_dist(t_draw draw)

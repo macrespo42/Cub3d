@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/02 13:29:59 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:38:00 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ double				get_range(t_draw draw);
 int					close_window(void);
 int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
+int					wall_hit_h(t_hit hit);
+int					wall_hit_v(t_hit hit);
 t_cam				cam_infos(void);
 t_hit				get_wall_dist(t_draw draw);
 void				draw(t_draw *d_infos);
