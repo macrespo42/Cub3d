@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/06 19:43:34 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/06 19:48:52 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ static t_hit		get_wall_dist_ne(t_draw d)
 	double	h_hit;
 
 	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
-	v.y = ceil(d.cam.y);
+	v.y = floor(d.cam.y);
 	while (wall_hit_v(v) == 1)
 	{
-		v.y += 1;
-		v.x += d.ray.x / d.ray.y;
+		v.y -= 1;
+		v.x -= d.ray.x / d.ray.y;
 	}
 	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
 	h.x = ceil(d.cam.x);
