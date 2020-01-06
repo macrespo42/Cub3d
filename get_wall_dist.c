@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/02 13:39:42 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/06 17:13:59 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,27 @@ static t_hit		get_wall_dist_north(t_draw draw)
 
 static t_hit		get_wall_dist_south(t_draw draw)
 {
-	t_hit	hit;
+	t_hit	v;
+	t_hit	h;
 
-	hit.x = draw.cam.x + (draw.cam.y - ceil(draw.cam.y)) * (draw.ray.x / draw.ray.y);
-	hit.y = ceil(draw.cam.y);
-	while (g_data.map[(int)floor(hit.y)][(int)floor(hit.x)] != '1')
+	v.x = draw.cam.x + (draw.cam.y - ceil(draw.cam.y)) * (draw.ray.x / draw.ray.y);
+	v.y = ceil(draw.cam.y);
+	while (g_data.map[(int)floor(v.y)][(int)floor(v.x)] != '1')
 	{
-		hit.y += 1;
-		hit.x += draw.ray.x / draw.ray.y;
+		v.y += 1;
+		v.x += draw.ray.x / draw.ray.y;
 	}
-	return (hit);
+	h.y = draw.cam.y + (draw.cam.x - ceil(draw.cam.x)) * (draw.ray.y / draw.ray.x);
+	h.x = ceil(draw.cam.x);
+	while (g_data.map[(int)floor(h.y)][(int)floor(h.x)] != '1')
+	{
+		h.x += 1;
+		h.y += draw.ray.y / draw.ray.x;
+	}
+	if (hypot(draw.cam.x - h.x, draw.cam.y - h.y) < hypot(draw.cam.x - v.x, draw.cam.y - v.y))
+		return (h);
+	else
+		return (v);
 }
 
 static t_hit		get_wall_dist_east(t_draw draw)
