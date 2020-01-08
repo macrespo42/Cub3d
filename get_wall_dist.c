@@ -6,135 +6,61 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/07 17:47:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 17:09:36 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_hit		get_wall_dist_se(t_draw d)
-{
-	t_hit	v;
-	t_hit	h;
-	double	h_hit;
-
-	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
-	v.y = ceil(d.cam.y);
-	while (wall_hit(v) == 1)
-	{
-		v.y += 1;
-		v.x += d.ray.x / d.ray.y;
-		printf("V LOOPHIT : [x:%f] - [y:%f]\n", v.x, v.y);
-	}
-	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
-	h.x = ceil(d.cam.x);
-	while (wall_hit(h) == 1)
-	{
-		h.x += 1;
-		h.y += d.ray.y / d.ray.x;
-		printf("H LOOPHIT : [x:%f] - [y:%f]\n", v.x, v.y);
-	}
-	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
-	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
-		return (h);
-	return (v);
-}
-
-static t_hit		get_wall_dist_so(t_draw d)
-{
-	t_hit	v;
-	t_hit	h;
-	double	h_hit;
-
-	v.x = d.cam.x + (d.cam.y - ceil(d.cam.y)) * (d.ray.x / d.ray.y);
-	v.y = ceil(d.cam.y);
-	printf("VERTICAL [X:%f] -- [Y:%f]\n", v.x, v.y);
-	while (wall_hit(v) == 1)
-	{
-		v.y += 1;
-		v.x += d.ray.x / d.ray.y;
-	}
-	h.y = d.cam.y + (d.cam.x - floor(d.cam.x)) * (d.ray.y / d.ray.x);
-	h.x = floor(d.cam.x);
-	printf("HORIZONTAL [X:%f] -- [Y:%f]\n", h.x, h.y);
-	while (wall_hit(h) == 1)
-	{
-		h.x -= 1;
-		h.y -= d.ray.y / d.ray.x;
-	}
-	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
-	printf("DIST SO OK\n");
-	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
-		return (h);
-	return (v);
-}
-
-static t_hit		get_wall_dist_ne(t_draw d)
-{
-	t_hit	v;
-	t_hit	h;
-	double	h_hit;
-
-	v.x = d.cam.x + (d.cam.y - floor(d.cam.y)) * (d.ray.x / d.ray.y);
-	v.y = floor(d.cam.y);
-	while (wall_hit(v) == 1)
-	{
-		v.y -= 1;
-		v.x -= d.ray.x / d.ray.y;
-	}
-	h.y = d.cam.y + (d.cam.x - ceil(d.cam.x)) * (d.ray.y / d.ray.x);
-	h.x = ceil(d.cam.x);
-	while (wall_hit(h) == 1)
-	{
-		h.x += 1;
-		h.y += d.ray.y / d.ray.x;
-	}
-	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
-	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
-		return (h);
-	return (v);
-}
-
-static t_hit		get_wall_dist_no(t_draw d)
-{
-	t_hit	v;
-	t_hit	h;
-	double	h_hit;
-
-	v.x = d.cam.x + (d.cam.y - floor(d.cam.y)) * (d.ray.x / d.ray.y);
-	v.y = floor(d.cam.y);
-	while (wall_hit(v) == 1)
-	{
-		v.y -= 1;
-		v.x -= d.ray.x / d.ray.y;
-	}
-	h.y = d.cam.y + (d.cam.x - floor(d.cam.x)) * (d.ray.y / d.ray.x);
-	h.x = floor(d.cam.x);
-	while (wall_hit(h) == 1)
-	{
-		h.x -= 1;
-		h.y -= d.ray.y / d.ray.x;
-	}
-	h_hit = hypot(d.cam.x - h.x, d.cam.y - h.y);
-	if (h_hit < hypot(d.cam.x - v.x, d.cam.y - v.y))
-		return (h);
-	return (v);
-}
-
-t_hit				get_wall_dist(t_draw draw)
+static t_hit				hit_init(t_draw draw, int map_x, int map_y)
 {
 	t_hit	hit;
 
-	if (draw.ray.x > 0 && draw.ray.y > 0)
+	hit.delta_dx = abs(1 / draw->ray.x);
+	hit.delta_dy = abs(1 / draw->ray.y);
+	if (draw->ray.x < 0)
 	{
-		hit = get_wall_dist_se(draw);
-		printf("HIT : [x:%f] -- [y:%f]\n", hit.x, hit.y);
+		hit.step_x = -1;
+		hit.side_dx = (draw->cam.x - map_x) * hit.delta_dx;
 	}
-	if (draw.ray.x < 0 && draw.ray.y > 0)
-		hit = get_wall_dist_so(draw);
-	if (draw.ray.x > 0 && draw.ray.y < 0)
-		hit = get_wall_dist_ne(draw);
-	if (draw.ray.x < 0 && draw.ray.y < 0)
-		hit = get_wall_dist_no(draw);
+	else
+	{
+		hit.step_x = 1;
+		hit.side_dx = (map_x + 1.0 - draw->cam.x) * hit.delta_dx;
+	}
+	if (draw->ray.y < 0)
+	{
+		hit.step_y = -1;
+		hit.side_dy = (draw->cam.y - map.y) * hit.delta_dy;
+	}
+	else
+	{
+		hit.step_y = -1;
+		hit.side_dy = (draw->cam.y - map.y) * hit.delta_dy;
+	}
 	return (hit);
+}
+
+int							get_wall_dist(t_draw draw, int map_x, int map_y)
+{
+	draw->hit = hit_init(draw, map_x, map_y);
+	draw->hit.wall = 0;
+	while (draw->hit == 0)
+	{
+		if (draw->hit.side_dx < draw->hit.side_dy)
+		{
+			draw->hit.side_dx += draw->hit.delta_dx;
+			map_x += draw->hit.step_x;
+			draw->hit.side = 0;
+		}
+		else
+		{
+			draw->hit.side_dy += draw->hit.delta_dyy;
+			map_y += draw->hit.step_y;
+			draw->hit.side = 1;
+		}
+		if (g_data.map[map_x][map_y] > 0)
+			draw->hit = 1;
+	}
+	return (draw->hit.side);
 }

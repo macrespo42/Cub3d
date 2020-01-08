@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 16:08:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/02 12:33:16 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 15:29:09 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ray(t_draw *draw)
 {
-	double	range;
-	double	move;
+	double	camera_x;
 
-	range = g_data.x / 2;
-	move = (draw->ray.i - range) / range * FOV * (M_PI / 180);
-	draw->ray.x = draw->cam.d_x * cos(move) - draw->cam.d_y * sin(move);
-	draw->ray.y = draw->cam.d_x * sin(move) + draw->cam.d_y * cos(move);
+	cameraX = 2 * draw->ray.i / (double)g_data.x - 1;
+	draw->ray.x = draw->cam.d_x + cam.p_x * camera_x;
+	draw->ray.y = draw->cam.d_y + cam.p_y * camera_x;
 }
