@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/23 12:00:43 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/07 13:41:43 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ t_cam				cam_infos(void)
 				cam.x = (double)j + 0.5;
 				cam.y = (double)i + 0.5;
 				cam.dir = g_data.map[i][j];
-				return (cam);
 			}
 			j++;
 		}
 		i++;
 	}
+	g_data.y_len = i - 1;
+	g_data.x_len = j - 1;
 	return (cam);
 }

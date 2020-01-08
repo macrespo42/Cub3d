@@ -49,7 +49,7 @@ fclean: clean
 re: fclean all
 
 test: all
-	./$(NAME) tests/map.cub
+	./$(NAME) tests/minimap.cub
 
 norm:
 	norminette $(SRC) $(HEADER)
