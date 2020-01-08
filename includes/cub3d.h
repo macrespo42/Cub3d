@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/07 11:39:07 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 14:14:10 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct		s_cam
 {
 	double	x;
 	double	y;
+	double	p_x;
+	double	p_y;
 	double	d_y;
 	double	d_x;
 	char	dir;

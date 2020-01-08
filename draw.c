@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/08 14:01:43 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 14:16:58 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ double				get_range(t_draw draw)
 	t_hit	hit;
 
 	hit = get_wall_dist(draw);
-	
+	return (hypot(draw.cam.x - hit.x, draw.cam.y - hit.y));
+}
 
 int		get_column(t_img *img, int column, int size_wall)
 {

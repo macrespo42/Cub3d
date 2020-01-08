@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/07 13:41:43 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 14:19:45 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ t_cam				cam_infos(void)
 	int		j;
 	t_cam	cam;
 
+	cam.p_x = 0;
+	cam.p_y = 0.66;
 	i = 0;
 	while (g_data.map[i])
 	{
@@ -55,8 +57,8 @@ t_cam				cam_infos(void)
 		{
 			if (is_pos(g_data.map[i][j], &cam))
 			{
-				cam.x = (double)j + 0.5;
-				cam.y = (double)i + 0.5;
+				cam.x = (double)j;
+				cam.y = (double)i;
 				cam.dir = g_data.map[i][j];
 			}
 			j++;
