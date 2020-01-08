@@ -6,11 +6,18 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/26 16:36:08 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/08 14:00:20 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		close_window(void)
+{
+	mlx_destroy_window(g_mlx.ptr, g_mlx.win);
+	exit(0);
+	return (0);
+}
 
 int		key_hook(int key, void *arg)
 {

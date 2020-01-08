@@ -11,20 +11,14 @@ LXFLAGS = -framework OpenGL -framework AppKit
 MLX = minilibx_opengl
 
 SRC = main.c \
-	close_window.c \
-	get_column.c \
 	key_hook.c \
 	ft_isspace.c \
-	parse_color.c \
-	parse_path.c \
-	parse_resolution.c \
+	parse_infos.c \
 	parse_map.c \
-	get_range.c \
 	get_wall_dist.c \
 	cam_infos.c \
 	draw.c \
 	move.c \
-	rotate.c \
 	ray.c \
 	parser.c
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_color.c                                      :+:      :+:    :+:   */
+/*   parse_infos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/09 12:57:35 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/26 13:43:49 by macrespo         ###   ########.fr       */
+/*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
+/*   Updated: 2020/01/08 14:05:26 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,47 @@ void			parse_color(const char *s, int pos)
 		g_data.f = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
 	if (c == 'C')
 		g_data.c = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
+}
+
+char	*parse_path(const char *s, int pos)
+{
+	char	*path;
+	int		i;
+	int		size_alloc;
+
+	size_alloc = 0;
+	while (ft_isspace(s[pos]) && s[pos])
+		pos++;
+	i = pos;
+	while (s[i++])
+		size_alloc++;
+	if (!(path = malloc(sizeof(char) * (size_alloc + 1))))
+		return (NULL);
+	i = 0;
+	while (s[pos])
+	{
+		path[i] = s[pos];
+		i++;
+		pos++;
+	}
+	path[i] = '\0';
+	return (path);
+}
+
+int		parse_resolution(const char *s, int *pos)
+{
+	int		res;
+
+	res = 0;
+	if (*pos == 0 || (s[*pos] >= '0' && s[*pos] <= '9'))
+		(*pos)++;
+	while (ft_isspace(s[*pos]) && s[*pos])
+		(*pos)++;
+	while (s[*pos] >= '0' && s[*pos] <= '9')
+	{
+		res = res * 10 + s[*pos] - '0';
+		(*pos)++;
+	}
+	(*pos)--;
+	return (res);
 }
