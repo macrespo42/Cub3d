@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 13:20:21 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/10 15:06:26 by macrespo         ###   ########.fr       */
+/*   Created: 2020/01/10 16:53:09 by macrespo          #+#    #+#             */
+/*   Updated: 2020/01/10 16:57:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "libft.h"
 
-int		ft_isspace(char c)
+double				ft_abs(double nb)
 {
-	if (c == '\t' || c == '\n' || c == '\r' || c == '\v'
-	|| c == '\f' || c == ' ')
-		return (1);
-	return (0);
+	double		op;
+
+	op = 1.00;
+	if (nb < 0)
+		op = -1.00;
+	return (nb * op);
 }

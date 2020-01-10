@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:13:08 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/10 16:18:12 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/10 17:01:20 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static t_hit				hit_init(t_draw draw, int map_x, int map_y)
 {
 	t_hit	hit;
 
-	hit.delta_dx = fabs(1 / draw.ray.x);
-	hit.delta_dy = fabs(1 / draw.ray.y);
+	hit.delta_dx = ft_abs(1 / draw.ray.x);
+	hit.delta_dy = ft_abs(1 / draw.ray.y);
 	if (draw.ray.x < 0)
 	{
 		hit.step_x = -1;

@@ -12,7 +12,6 @@ MLX = minilibx_opengl
 
 SRC = main.c \
 	key_hook.c \
-	ft_isspace.c \
 	parse_infos.c \
 	parse_map.c \
 	get_wall_dist.c \
