@@ -6,27 +6,28 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/08 17:17:58 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/10 16:19:29 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double				get_range(t_draw d)
+double				get_range(t_draw *d)
 {
-	int		hit;
+	int		side;
 	int		map_x;
 	int		map_y;
 	double	wall_dist;
 
 	map_x = (int)d->cam.x;
 	map_y = (int)d->cam.y;
-	hit = get_wall_dist(d, map_x, map_y);
-	if (hit == 0)
+	side = get_wall_dist(d, map_x, map_y);
+	if (side == 0)
 		wall_dist = (map_x - d->cam.x + (1 - d->hit.step_x) / 2) / d->ray.x;
 	else
 		wall_dist = (map_y - d->cam.y + (1 - d->hit.step_y) / 2) / d->ray.y;
-	return ((int)(g_data.y / wall_dist);
+
+	return ((int)(g_data.y / wall_dist));
 }
 
 int		get_column(t_img *img, int column, int size_wall)
@@ -67,7 +68,7 @@ void	draw(t_draw *d_infos)
 	while (d_infos->ray.i < g_data.x)
 	{
 		ray(d_infos);
-		range = g_data.y / get_range(*d_infos);
+		range = get_range(d_infos);
 		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
