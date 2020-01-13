@@ -6,43 +6,25 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/10 16:19:29 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/13 14:48:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double				get_range(t_draw *d)
-{
-	int		side;
-	int		map_x;
-	int		map_y;
-	double	wall_dist;
-
-	map_x = (int)d->cam.x;
-	map_y = (int)d->cam.y;
-	side = get_wall_dist(d, map_x, map_y);
-	if (side == 0)
-		wall_dist = (map_x - d->cam.x + (1 - d->hit.step_x) / 2) / d->ray.x;
-	else
-		wall_dist = (map_y - d->cam.y + (1 - d->hit.step_y) / 2) / d->ray.y;
-
-	return ((int)(g_data.y / wall_dist));
-}
-
-int		get_column(t_img *img, int column, int size_wall)
+int		get_column(t_img *img, int column, int wall_size)
 {
 	int		px;
 
 	px = 0;
-	if (size_wall % 2 != 0)
-		size_wall += 1;
-	while (column < g_data.x * (g_data.y - size_wall) / 2)
+	if (wall_size % 2 != 0)
+		wall_size += 1;
+	while (column < g_data.x * (g_data.y - wall_size) / 2)
 	{
 		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
 		column += g_data.x;
 	}
-	while (px < size_wall && column < (g_data.x * g_data.y))
+	while (px < wall_size && column < (g_data.x * g_data.y))
 	{
 		img->grid[column] = mlx_get_color_value(g_mlx.ptr, WALL);
 		column += g_data.x;
@@ -67,8 +49,7 @@ void	draw(t_draw *d_infos)
 	d_infos->ray.i = 0;
 	while (d_infos->ray.i < g_data.x)
 	{
-		ray(d_infos);
-		range = get_range(d_infos);
+		range = 500;
 		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}

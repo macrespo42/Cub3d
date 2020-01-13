@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/10 16:12:31 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/13 14:54:26 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,10 @@ typedef struct		s_draw
 	t_hit	hit;
 }					t_draw;
 
-double				get_range(t_draw *draw);
 int					close_window(void);
 int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
-int					wall_hit(t_hit hit);
 t_cam				cam_infos(void);
-int					get_wall_dist(t_draw *draw, int map_x, int map_y);
 void				draw(t_draw *d_infos);
-void				horizontal_move(int event, t_draw *infos);
-void				ray(t_draw *draw);
-void				rotate(int event, t_draw *dir);
-void				vertical_move(int event, t_draw *infos);
 extern t_mlx		g_mlx;
 #endif

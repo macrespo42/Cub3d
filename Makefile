@@ -14,11 +14,8 @@ SRC = main.c \
 	key_hook.c \
 	parse_infos.c \
 	parse_map.c \
-	get_wall_dist.c \
 	cam_infos.c \
 	draw.c \
-	move.c \
-	ray.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
