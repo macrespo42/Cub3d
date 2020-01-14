@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/13 18:37:04 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/14 18:37:09 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ typedef struct		s_hit
 	double	side_dy;
 	double	delta_dx;
 	double	delta_dy;
+	double	wall_dist;
 	int		step_x;
 	int		step_y;
+	int		map_x;
+	int		map_y;
 	int		wall;
 	int		side;
 
@@ -88,6 +91,7 @@ typedef struct		s_draw
 	t_hit	hit;
 }					t_draw;
 
+double				get_range(t_draw *d);
 int					close_window(void);
 int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);

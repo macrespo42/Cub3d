@@ -17,6 +17,7 @@ SRC = main.c \
 	cam_infos.c \
 	draw.c \
 	ray.c \
+	get_range.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)
