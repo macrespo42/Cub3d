@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/13 14:54:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/13 18:37:04 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define FOV 33
 
 typedef struct		s_img
-{
+	{
 	void			*ptr;
 	unsigned int	*grid;
 	int				bpp;
@@ -75,6 +75,8 @@ typedef struct		s_ray
 {
 	double	x;
 	double	y;
+	double	d_x;
+	double	d_y;
 	int		i;
 }					t_ray;
 
@@ -91,5 +93,6 @@ int					get_column(t_img *img, int column, int size_wall);
 int					key_hook(int key, void *arg);
 t_cam				cam_infos(void);
 void				draw(t_draw *d_infos);
+void				ray(t_draw *d);
 extern t_mlx		g_mlx;
 #endif

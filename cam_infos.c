@@ -6,11 +6,35 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/08 14:19:45 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/14 14:22:56 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void			plane_init(char c, t_cam *cam)
+{
+	if (c == 'N')
+	{
+		cam->p_x = 1;
+		cam->p_y = 0;
+	}
+	else if (c == 'S')
+	{
+		cam->p_x = -1;
+		cam->p_y = 0;
+	}
+	else if (c == 'W')
+	{
+		cam->p_x = 0;
+		cam->p_y = -1;
+	}
+	else
+	{
+		cam->p_x = 0;
+		cam->p_y = 1;
+	}
+}
 
 static int			is_pos(char c, t_cam *cam)
 {
@@ -47,8 +71,6 @@ t_cam				cam_infos(void)
 	int		j;
 	t_cam	cam;
 
-	cam.p_x = 0;
-	cam.p_y = 0.66;
 	i = 0;
 	while (g_data.map[i])
 	{
@@ -60,6 +82,7 @@ t_cam				cam_infos(void)
 				cam.x = (double)j;
 				cam.y = (double)i;
 				cam.dir = g_data.map[i][j];
+				plane_init(g_data.map[i][j], &cam);
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/13 14:48:40 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/14 13:34:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int		get_column(t_img *img, int column, int wall_size)
 	int		px;
 
 	px = 0;
-	if (wall_size % 2 != 0)
-		wall_size += 1;
 	while (column < g_data.x * (g_data.y - wall_size) / 2)
 	{
 		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
@@ -49,7 +47,10 @@ void	draw(t_draw *d_infos)
 	d_infos->ray.i = 0;
 	while (d_infos->ray.i < g_data.x)
 	{
-		range = 500;
+		ray(d_infos);
+		// printf("RAY : [X:%f] [Y:%f]\n", d_infos->ray.x, d_infos->ray.y);
+		printf("RAY DIR : [X:%f] [Y:%f]\n", d_infos->ray.d_x, d_infos->ray.d_y);
+		range = 300;
 		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
