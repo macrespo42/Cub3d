@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/14 18:37:09 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/15 16:12:08 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ int					key_hook(int key, void *arg);
 t_cam				cam_infos(void);
 void				draw(t_draw *d_infos);
 void				ray(t_draw *d);
+void				rotate(int event, t_draw *d);
 extern t_mlx		g_mlx;
 #endif

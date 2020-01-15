@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/15 14:00:46 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/15 14:56:55 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	draw(t_draw *d_infos)
 	{
 		ray(d_infos);
 		range = get_range(d_infos);
-		// printf("SIDE : [x:%f] [y:%f]\n", d_infos->hit.side_dx, d_infos->hit.side_dy);
-		// range = 300;
 		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}

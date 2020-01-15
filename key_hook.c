@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/13 14:54:12 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/15 15:16:53 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int		key_hook(int key, void *arg)
 	else if (key == D)
 		printf("D\n");
 	else if (key == LEFT)
-		printf("LEFT\n");
+		rotate(LEFT, arg);
 	else if (key == RIGHT)
-		printf("RIGHT\n");
+		rotate(RIGHT, arg);
 	return (key);
 }
