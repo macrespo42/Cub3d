@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:53:06 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/14 18:51:40 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/15 14:18:27 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ static void	hit_init(t_draw *d)
 	}
 }
 
-double		get_range(t_draw *d)
+static void	find_hit(t_draw *d)
 {
-	hit_init(d);
 	d->hit.wall = 0;
 	while (d->hit.wall == 0)
 	{
@@ -62,9 +61,18 @@ double		get_range(t_draw *d)
 			d->hit.wall = 1;
 	}
 	if (d->hit.side == 0)
-		d->hit.wall_dist = ft_abs((d->hit.map_x - d->ray.x + (1 - d->hit.step_x) / 2) / d->ray.d_x);
+		d->hit.wall_dist = ft_abs(
+			(d->hit.map_x - d->ray.x + (1 - d->hit.step_x) / 2) / d->ray.d_x);
 	else
-		d->hit.wall_dist = ft_abs((d->hit.map_y - d->ray.y + (1 - d->hit.step_y) / 2) / d->ray.d_y);
-	printf("wall_dist : [%f]\n", d->hit.wall_dist);
-	return (2.00);
+		d->hit.wall_dist = ft_abs(
+			(d->hit.map_y - d->ray.y + (1 - d->hit.step_y) / 2) / d->ray.d_y);
+}
+
+double		get_range(t_draw *d)
+{
+	int		line_height;
+	hit_init(d);
+	find_hit(d);
+	line_height = ft_abs(g_data.y / d->hit.wall_dist);
+	return (line_height);
 }
