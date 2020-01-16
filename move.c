@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:05:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/16 14:21:21 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/16 14:31:00 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,19 @@ void	vertical_move(int event, t_draw *infos)
 
 void	horizontal_move(int event, t_draw *infos)
 {
+	double	speed;
+
+	speed = 0;
 	if (event == D)
-	{
-		infos->cam.x -= infos->cam.d_y;
-		infos->cam.y += infos->cam.d_x;
-	}
+		speed = 0.15;
 	else if (event == A)
-	{
-		infos->cam.x += infos->cam.d_y;
-		infos->cam.y -= infos->cam.d_x;
-	}
+		speed = -0.15;
+	infos->cam.x -= infos->cam.d_y * speed;
 	if (g_data.map[(int)floor(infos->cam.y)][(int)floor(infos->cam.x)] == '1')
-	{
-		if (event == D)
-		{
-			infos->cam.x += infos->cam.d_y;
-			infos->cam.y -= infos->cam.d_x;
-		}
-		else if (event == A)
-		{
-			infos->cam.x -= infos->cam.d_y;
-			infos->cam.y += infos->cam.d_x;
-		}
-	}
+		infos->cam.x += infos->cam.d_y * speed;
+	infos->cam.y += infos->cam.d_x * speed;
+	if (g_data.map[(int)floor(infos->cam.y)][(int)floor(infos->cam.x)] == '1')
+		infos->cam.y -= infos->cam.d_x * speed;
 	draw(infos);
 }
 
