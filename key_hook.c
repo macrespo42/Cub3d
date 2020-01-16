@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/15 15:16:53 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/16 11:47:03 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int		key_hook(int key, void *arg)
 	if (key == ESC)
 		close_window();
 	else if (key == W)
-		printf("W\n");
+		vertical_move(W, arg);
 	else if (key == S)
-		printf("S\n");
+		vertical_move(S, arg);
 	else if (key == A)
-		printf("A\n");
+		horizontal_move(A, arg);
 	else if (key == D)
-		printf("D\n");
+		horizontal_move(D, arg);
 	else if (key == LEFT)
 		rotate(LEFT, arg);
 	else if (key == RIGHT)
