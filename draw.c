@@ -6,31 +6,48 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/15 14:56:55 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/16 20:19:37 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		get_column(t_img *img, int column, int wall_size)
+unsigned int		wall_orient(t_draw *d)
 {
-	int		px;
+	unsigned int	color;
+
+	if (d->hit.side == 0 && d->ray.d_x > 0)
+		color = SO;
+	if (d->hit.side == 0 && d->ray.d_x < 0)
+		color = NO;
+	if (d->hit.side == 1 && d->ray.d_y < 0)
+		color = WE;
+	if (d->hit.side == 1 && d->ray.d_y > 0)
+		color = EA;
+	return (color);
+}
+
+int		get_column(t_draw *d, int column, int wall_size)
+{
+	int				px;
+	unsigned int	color;
 
 	px = 0;
+	color = wall_orient(d);
 	while (column < g_data.x * (g_data.y - wall_size) / 2)
 	{
-		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
+		d->img.grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.f);
 		column += g_data.x;
 	}
 	while (px < wall_size && column < (g_data.x * g_data.y))
 	{
-		img->grid[column] = mlx_get_color_value(g_mlx.ptr, WALL);
+		d->img.grid[column] = mlx_get_color_value(g_mlx.ptr, color);
 		column += g_data.x;
 		px++;
 	}
 	while (column < (g_data.x * g_data.y))
 	{
-		img->grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.c);
+		d->img.grid[column] = mlx_get_color_value(g_mlx.ptr, g_data.c);
 		column += g_data.x;
 	}
 	return (column);
@@ -49,7 +66,7 @@ void	draw(t_draw *d_infos)
 	{
 		ray(d_infos);
 		range = get_range(d_infos);
-		d_infos->ray.i = get_column(&d_infos->img, d_infos->ray.i, range);
+		d_infos->ray.i = get_column(d_infos, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, d_infos->img.ptr, 0, 0);

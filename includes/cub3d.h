@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/16 11:46:21 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/16 20:06:10 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 # include "mlx.h"
 # include "parser.h"
 # define NAME "Cub3D"
-# define WALL 0xc5002b
+# define NO 0xc5002b
+# define EA 0xB265FF
+# define WE 0x33CA87
+# define SO 0xF7F911
 # define ESC 53
 # define W 13
 # define S 1
@@ -93,7 +96,7 @@ typedef struct		s_draw
 
 double				get_range(t_draw *d);
 int					close_window(void);
-int					get_column(t_img *img, int column, int size_wall);
+int					get_column(t_draw *d, int column, int size_wall);
 int					key_hook(int key, void *arg);
 t_cam				cam_infos(void);
 void				draw(t_draw *d_infos);
