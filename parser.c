@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2019/12/26 13:48:49 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/17 15:00:55 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ int				parser(const char *file)
 		if (line[0] == '1')
 		{
 			g_data.map = parse_map(line, &size_map);
+			if (line[0] != '1')
+			{
+				free(g_data.map);
+				g_data.map = NULL;
+			}
 		}
 		free(line);
 	}
