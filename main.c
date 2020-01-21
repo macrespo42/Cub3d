@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/17 14:55:27 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/21 14:37:49 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ t_data		g_data;
 int				main(int ac, char **av)
 {
 	t_draw	d_infos;
-
-	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1 || ac < 2)
+	
+	if (ac < 2 || ac > 3)
+		return (EXIT_FAILURE);
+	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1)
 		return (EXIT_FAILURE);
 	if (!(g_mlx.win = mlx_new_window(g_mlx.ptr, g_data.x, g_data.y, NAME)))
 		return (EXIT_FAILURE);
