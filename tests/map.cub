@@ -1,10 +1,10 @@
 R 1080 720
-NO ./../img/no.png
-SO ./../img/so.png
-WE ./../img/we.png
-EA ./../img/ea.png
+NO ./textures/grey.xpm
+SO ./textures/blue.xpm
+WE ./textures/brick.xpm
+EA ./textures/wood.xpm
 
-S ./../img/sprite.png
+S ./textures/grey.xpm
 F 135,206,235
 C 168,119,90
 
