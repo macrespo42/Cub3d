@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/21 16:49:17 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/22 18:07:14 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			parse_color(const char *s, int pos)
 		g_data.c = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
 }
 
-unsigned int	*parse_path(const char *s, int pos)
+unsigned int	**parse_path(const char *s, int pos)
 {
 	char	*path;
 	int		i;

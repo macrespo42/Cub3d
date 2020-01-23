@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/21 19:39:53 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 11:54:22 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,11 @@ typedef struct		s_draw
 	t_img	img;
 	t_ray	ray;
 	t_hit	hit;
+	double	wall_x;
+	double	tex_x;
+	double	tex_y;
+	int		start;
+	int		end;
 }					t_draw;
 
 double				get_range(t_draw *d);
