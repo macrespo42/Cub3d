@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/21 16:49:41 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:57:06 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static void		which_data(const char *line)
 	if (line[i] == 'R')
 	{
 		g_data.x = parse_resolution(line, &i);
+		g_data.x = g_data.x > 2560 ? 2560 : g_data.x;
 		g_data.y = parse_resolution(line, &i);
+		g_data.y = g_data.y > 1400 ? 1400 : g_data.y;
 	}
 	else if (line[i] == 'N' && line[i + 1] == 'O')
 		g_data.no = parse_path(line, i + 2);
