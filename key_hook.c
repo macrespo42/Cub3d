@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 13:16:37 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:28:45 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		close_window(void)
 		free(g_data.s[y]);
 		y++;
 	}
-	free((void*)g_data.no);
-	free((void*)g_data.so);
-	free((void*)g_data.we);
-	free((void*)g_data.ea);
-	free((void*)g_data.s);
+	free(g_data.no);
+	free(g_data.so);
+	free(g_data.we);
+	free(g_data.ea);
+	free(g_data.s);
 	free(g_mlx.ptr);
 	exit(0);
 	return (0);
