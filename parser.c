@@ -6,11 +6,21 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 15:27:19 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:25:38 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
+
+static int		data_init()
+{
+	g_data.no = NULL;
+	g_data.so = NULL;
+	g_data.we = NULL;
+	g_data.ea = NULL;
+	g_data.s = NULL;
+	return (0);
+}
 
 static void		which_data(const char *line)
 {
@@ -44,11 +54,6 @@ static int		check_cubext(const char *file)
 {
 	int		len;
 
-	g_data.no = NULL;
-	g_data.so = NULL;
-	g_data.we = NULL;
-	g_data.ea = NULL;
-	g_data.s = NULL;
 	len = ft_strlen(file) - 1;
 	if (file[len] == 'b' && file[len - 1] == 'u' && file[len - 2] == 'c')
 	{
@@ -66,7 +71,7 @@ int				parser(const char *file)
 	char	*line;
 	int		size_map;
 
-	size_map = 0;
+	size_map = data_init();
 	fd = open(file, O_RDONLY);
 	ret = check_cubext(file);
 	while (ret > 0)
