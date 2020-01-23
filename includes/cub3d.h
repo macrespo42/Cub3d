@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 13:03:37 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:11:18 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ typedef struct		s_draw
 }					t_draw;
 
 double				get_range(t_draw *d);
-int					close_window(void);
+int					close_window(int error);
 int					get_column(t_draw *d, int column, int size_wall);
 int					key_hook(int key, void *arg);
 t_cam				cam_infos(void);

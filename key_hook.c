@@ -6,42 +6,58 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 13:28:45 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:10:51 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		close_window(void)
+static void		free_textures(void)
+{
+	if (g_data.no != NULL)
+		free(g_data.no);
+	if (g_data.so != NULL)
+		free(g_data.so);
+	if (g_data.we != NULL)
+		free(g_data.we);
+	if (g_data.ea != NULL)
+		free(g_data.ea);
+	if (g_data.s != NULL)
+		free(g_data.s);
+}
+
+int				close_window(int error)
 {
 	int		y;
 
-	mlx_destroy_window(g_mlx.ptr, g_mlx.win);
+	if (error == 0)
+		mlx_destroy_window(g_mlx.ptr, g_mlx.win);
 	y = 0;
 	while (y < 64)
 	{
-		free(g_data.no[y]);
-		free(g_data.so[y]);
-		free(g_data.we[y]);
-		free(g_data.ea[y]);
-		free(g_data.s[y]);
+		if (g_data.no != NULL)
+			free(g_data.no[y]);
+		if (g_data.so != NULL)
+			free(g_data.so[y]);
+		if (g_data.we != NULL)
+			free(g_data.we[y]);
+		if (g_data.ea != NULL)
+			free(g_data.ea[y]);
+		if (g_data.s != NULL)
+			free(g_data.s[y]);
 		y++;
 	}
-	free(g_data.no);
-	free(g_data.so);
-	free(g_data.we);
-	free(g_data.ea);
-	free(g_data.s);
+	free_textures();
 	free(g_mlx.ptr);
-	exit(0);
+	exit(error);
 	return (0);
 }
 
-int		key_hook(int key, void *arg)
+int				key_hook(int key, void *arg)
 {
 	(void)arg;
 	if (key == ESC)
-		close_window();
+		close_window(0);
 	else if (key == W)
 		vertical_move(W, arg);
 	else if (key == S)

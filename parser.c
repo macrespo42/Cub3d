@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 13:57:06 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:27:19 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ static int		check_cubext(const char *file)
 {
 	int		len;
 
+	g_data.no = NULL;
+	g_data.so = NULL;
+	g_data.we = NULL;
+	g_data.ea = NULL;
+	g_data.s = NULL;
 	len = ft_strlen(file) - 1;
 	if (file[len] == 'b' && file[len - 1] == 'u' && file[len - 2] == 'c')
 	{

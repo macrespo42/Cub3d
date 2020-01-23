@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:54:20 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 14:39:03 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 16:07:14 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_img	file_to_array(char *path)
 
 	img.ptr = mlx_xpm_file_to_image(g_mlx.ptr, path, &img.w, &img.h);
 	if (img.ptr == NULL || img.w != 64 || img.h != 64)
-		exit(1);
+		close_window(1);
 	img.grid =
 	(unsigned int*)mlx_get_data_addr(img.ptr, &img.bpp, &img.sl, &img.ed);
 	free(img.ptr);
@@ -45,9 +45,7 @@ unsigned int	**load_xpm(char *path)
 		x = 0;
 		while (x < img.w)
 		{
-			color[y][x] = img.grid[i];
-			i++;
-			x++;
+			color[y][x++] = img.grid[i++];
 		}
 		y++;
 	}
