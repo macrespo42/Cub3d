@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 12:02:32 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 12:53:31 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ static void			x_texture(t_draw *d, int wall_size)
 	if (d->end >= g_data.y)
 		d->end = g_data.y - 1;
 	if (d->hit.side == 1)
-		d->wall_x = d->ray.x + ((d->hit.map_y - d->ray.y + (1 - d->hit.step_y) / 2) / d->ray.d_y) * d->ray.d_x;
+		d->wall_x = d->ray.x + ((d->hit.map_y - d->ray.y + (1 - d->hit.step_y)
+		/ 2) / d->ray.d_y) * d->ray.d_x;
 	else
-		d->wall_x = d->ray.y + ((d->hit.map_x - d->ray.x + (1 - d->hit.step_x) / 2) / d->ray.d_x) * d->ray.d_y;
+		d->wall_x = d->ray.y + ((d->hit.map_x - d->ray.x + (1 - d->hit.step_x)
+		/ 2) / d->ray.d_x) * d->ray.d_y;
 	d->wall_x -= floor(d->wall_x);
 	d->tex_x = (int)(d->wall_x * 64);
 	if (d->hit.side == 0 && d->ray.d_x > 0)
@@ -47,7 +49,7 @@ unsigned int		wall_orient(t_draw *d)
 	return (color);
 }
 
-int		get_column(t_draw *d, int column, int wall_size)
+int					get_column(t_draw *d, int column, int wall_size)
 {
 	int				px;
 	unsigned int	color;
@@ -75,7 +77,7 @@ int		get_column(t_draw *d, int column, int wall_size)
 	return (column);
 }
 
-void	draw(t_draw *d_infos)
+void				draw(t_draw *d_infos)
 {
 	double	range;
 

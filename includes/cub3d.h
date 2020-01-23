@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 11:54:22 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:03:37 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define FOV 33
 
 typedef struct		s_img
-	{
+{
 	void			*ptr;
 	unsigned int	*grid;
 	int				bpp;

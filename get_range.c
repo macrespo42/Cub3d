@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:53:06 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/15 14:18:27 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 12:56:51 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void	hit_init(t_draw *d)
 {
 	d->hit.map_x = (int)d->ray.x;
 	d->hit.map_y = (int)d->ray.y;
-	d->hit.delta_dx = sqrt(1 + (d->ray.d_y * d->ray.d_y) / (d->ray.d_x * d->ray.d_x));
-	d->hit.delta_dy = sqrt(1 + (d->ray.d_x * d->ray.d_x) / (d->ray.d_y * d->ray.d_y));
+	d->hit.delta_dx = ft_abs(1 / d->ray.d_x);
+	d->hit.delta_dy = ft_abs(1 / d->ray.d_y);
 	if (d->ray.d_x < 0)
 	{
 		d->hit.step_x = -1;
@@ -71,6 +71,7 @@ static void	find_hit(t_draw *d)
 double		get_range(t_draw *d)
 {
 	int		line_height;
+
 	hit_init(d);
 	find_hit(d);
 	line_height = ft_abs(g_data.y / d->hit.wall_dist);

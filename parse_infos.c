@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/22 18:07:14 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 12:53:11 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ unsigned int	**parse_path(const char *s, int pos)
 	return (load_xpm(path));
 }
 
-int		parse_resolution(const char *s, int *pos)
+int				parse_resolution(const char *s, int *pos)
 {
 	int		res;
 
