@@ -40,6 +40,7 @@ SRC = ft_memset.c \
 	ft_putnbr_fd.c \
 	get_next_line.c \
 	ft_isspace.c \
+	ft_memdel.c \
 	ft_abs.c
 
 BONUS_SRC = ft_lstnew.c \

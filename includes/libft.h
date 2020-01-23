@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:48:52 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/10 16:58:15 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:19:06 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
+void				ft_memdel(void *ap);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);

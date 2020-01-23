@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 18:11:14 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:19:48 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 static void		free_textures(void)
 {
 	if (g_data.no != NULL)
-		free(g_data.no);
+		ft_memdel(g_data.no);
 	if (g_data.so != NULL)
-		free(g_data.so);
+		ft_memdel(g_data.so);
 	if (g_data.we != NULL)
-		free(g_data.we);
+		ft_memdel(g_data.we);
 	if (g_data.ea != NULL)
-		free(g_data.ea);
+		ft_memdel(g_data.ea);
 	if (g_data.s != NULL)
-		free(g_data.s);
+		ft_memdel(g_data.s);
 }
 
 int				close_window(int error)
@@ -36,21 +36,21 @@ int				close_window(int error)
 	while (y < 64)
 	{
 		if (g_data.no != NULL)
-			free(g_data.no[y]);
+			ft_memdel(g_data.no[y]);
 		if (g_data.so != NULL)
-			free(g_data.so[y]);
+			ft_memdel(g_data.so[y]);
 		if (g_data.we != NULL)
-			free(g_data.we[y]);
+			ft_memdel(g_data.we[y]);
 		if (g_data.ea != NULL)
-			free(g_data.ea[y]);
+			ft_memdel(g_data.ea[y]);
 		if (g_data.s != NULL)
-			free(g_data.s[y]);
+			ft_memdel(g_data.s[y]);
 		y++;
 	}
 	free_textures();
-	if (g_data.no == NULL || error == 1)
+	if (g_data.no == NULL)
 		perror("Error bad xpm");
-	free(g_mlx.ptr);
+	ft_memdel(g_mlx.ptr);
 	exit(error);
 	return (0);
 }
