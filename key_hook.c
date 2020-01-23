@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 16:10:51 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:11:14 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int				close_window(int error)
 		y++;
 	}
 	free_textures();
+	if (g_data.no == NULL || error == 1)
+		perror("Error bad xpm");
 	free(g_mlx.ptr);
 	exit(error);
 	return (0);

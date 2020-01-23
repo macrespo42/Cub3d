@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 16:25:38 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/23 18:07:26 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ static int		check_cubext(const char *file)
 		if (file[len - 3] == '.')
 			return (1);
 	}
-	write(1, "Bad file type\n", 14);
+	else
+		perror("Error bad extension ");
 	return (-1);
 }
 
