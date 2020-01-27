@@ -4,7 +4,7 @@ SO ./textures/blue.xpm
 WE ./textures/brick.xpm
 EA ./textures/wood.xpm
 
-S ./textures/grey.xpm
+S ./textures/barrel.xpm
 F 135,206,235
 C 168,119,90
 

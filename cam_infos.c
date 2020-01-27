@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/15 15:49:10 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 11:38:50 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@ static int			is_pos(char c, t_cam *cam)
 	return (0);
 }
 
+static void			cam_init(t_cam *cam, int i, int j)
+{
+	cam->x = (double)j + 0.5;
+	cam->y = (double)i + 0.5;
+	cam->dir = g_data.map[i][j];
+}
+
 t_cam				cam_infos(void)
 {
 	int		i;
@@ -72,16 +79,17 @@ t_cam				cam_infos(void)
 	t_cam	cam;
 
 	i = 0;
+	cam.s_nb = 0;
 	while (g_data.map[i])
 	{
 		j = 0;
 		while (g_data.map[i][j])
 		{
+			if (g_data.map[i][j] == '2')
+				cam.s_nb++;
 			if (is_pos(g_data.map[i][j], &cam))
 			{
-				cam.x = (double)j + 0.5;
-				cam.y = (double)i + 0.5;
-				cam.dir = g_data.map[i][j];
+				cam_init(&cam, i, j);
 				plane_init(g_data.map[i][j], &cam);
 			}
 			j++;

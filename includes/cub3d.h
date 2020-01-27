@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 16:11:18 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 13:33:13 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include "mlx.h"
 # include "parser.h"
 # define NAME "Cub3D"
-# define NO 0xc5002b
-# define EA 0xB265FF
-# define WE 0x33CA87
-# define SO 0xF7F911
 # define ESC 53
 # define W 13
 # define S 1
@@ -59,6 +55,7 @@ typedef struct		s_cam
 	double	d_y;
 	double	d_x;
 	char	dir;
+	int		s_nb;
 }					t_cam;
 
 typedef struct		s_hit
@@ -88,12 +85,22 @@ typedef struct		s_ray
 	int		i;
 }					t_ray;
 
+typedef struct		s_spt
+{
+	double	x;
+	double	y;
+	double	*zbuff;
+	double	*order;
+	int		*dist;
+}					t_spt;
+
 typedef struct		s_draw
 {
 	t_cam	cam;
 	t_img	img;
 	t_ray	ray;
 	t_hit	hit;
+	t_spt	sprite;
 	double	wall_x;
 	double	tex_x;
 	double	tex_y;
@@ -105,6 +112,7 @@ double				get_range(t_draw *d);
 int					close_window(int error);
 int					get_column(t_draw *d, int column, int size_wall);
 int					key_hook(int key, void *arg);
+int					sprite_init(t_draw *d);
 t_cam				cam_infos(void);
 unsigned int		wall_orient(t_draw *d);
 void				draw(t_draw *d_infos);
