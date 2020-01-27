@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 15:36:40 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:32:39 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ typedef struct		s_ray
 typedef struct		s_spt
 {
 	double	*zbuff;
-	double	*order;
-	int		*dist;
+	double	*dist;
+	int		*order;
 }					t_spt;
 
 typedef struct		s_sp
@@ -124,6 +124,7 @@ void				draw(t_draw *d_infos);
 void				horizontal_move(int event, t_draw *infos);
 void				ray(t_draw *d);
 void				rotate(int event, t_draw *d);
+void				sort_sprites(t_draw *d);
 void				vertical_move(int event, t_draw *infos);
 extern t_mlx		g_mlx;
 #endif

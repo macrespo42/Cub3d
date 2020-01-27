@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 13:35:16 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 16:05:52 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				draw(t_draw *d_infos)
 	{
 		ray(d_infos);
 		range = get_range(d_infos);
+		sort_sprites(d_infos);
 		d_infos->ray.i = get_column(d_infos, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
