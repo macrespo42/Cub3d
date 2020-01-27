@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 13:33:13 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 15:36:40 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,16 @@ typedef struct		s_ray
 
 typedef struct		s_spt
 {
-	double	x;
-	double	y;
 	double	*zbuff;
 	double	*order;
 	int		*dist;
 }					t_spt;
+
+typedef struct		s_sp
+{
+	double	x;
+	double	y;
+}					t_sp;
 
 typedef struct		s_draw
 {
@@ -101,6 +105,7 @@ typedef struct		s_draw
 	t_ray	ray;
 	t_hit	hit;
 	t_spt	sprite;
+	t_sp	*spos;
 	double	wall_x;
 	double	tex_x;
 	double	tex_y;
