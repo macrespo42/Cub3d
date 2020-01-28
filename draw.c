@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 16:05:52 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:46:19 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void				draw(t_draw *d_infos)
 		d_infos->ray.i = get_column(d_infos, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
+	draw_sprite(d_infos);
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, d_infos->img.ptr, 0, 0);
 	ft_memdel(d_infos->img.ptr);
 	ft_memdel(d_infos->img.grid);
