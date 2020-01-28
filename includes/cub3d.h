@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 19:30:09 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/28 19:59:20 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct		s_cam
 	double	p_x;
 	double	p_y;
 	double	d_y;
+	double	a;
 	double	d_x;
 	char	dir;
 	int		s_nb;
@@ -85,25 +86,12 @@ typedef struct		s_ray
 	int		i;
 }					t_ray;
 
-typedef struct		s_spt
+typedef struct		s_spr
 {
-	double	*zbuff;
-	double	*dist;
-	int		*order;
-	int		ss;
-	int		sh;
 	double	x;
 	double	y;
 	double	d;
-	double	tx;
-	double	ty;
-}					t_spt;
-
-typedef struct		s_sp
-{
-	double	x;
-	double	y;
-}					t_sp;
+}					t_spr;
 
 typedef struct		s_draw
 {
@@ -111,8 +99,7 @@ typedef struct		s_draw
 	t_img	img;
 	t_ray	ray;
 	t_hit	hit;
-	t_spt	sprite;
-	t_sp	*spos;
+	t_spr	*spr;
 	double	wall_x;
 	double	tex_x;
 	double	tex_y;
