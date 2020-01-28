@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 18:12:05 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/28 10:26:20 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void		bubble_sort(t_draw *d, int length)
 		sorted = 1;
 		while (i < length - 1)
 		{
-			if (d->sprite.dist[i] < d->sprite.dist[i - 1])
+			if (d->sprite.dist[i] > d->sprite.dist[i + 1])
 			{
 				tmp = d->sprite.dist[i];
 				d->sprite.dist[i] = d->sprite.dist[i + 1];
@@ -100,4 +100,16 @@ void			sort_sprites(t_draw *d)
 		i++;
 	}
 	bubble_sort(d, d->cam.s_nb);
+	i = 0;
+	while(i < d->cam.s_nb)
+	{
+		d->sprite.x = d->spos[d->sprite.order[i]].x - d->cam.x;
+		d->sprite.y = d->spos[d->sprite.order[i]].y - d->cam.y;
+		d->sprite.d = 1.0 / (d->cam.p_x * d->cam.d_y - d->cam.d_x * d->cam.p_y);
+		d->sprite.tx = d->sprite.d * (d->cam.d_y * d->sprite.x - d->cam.d_x * d->sprite.x);
+		d->sprite.ty = d->sprite.d * (-d->cam.p_y * d->sprite.y - d->cam.p_x * d->sprite.x);
+		d->sprite.ss = (int)((g_data.x / 2) * (1 + d->sprite.tx * d->sprite.ty));
+		d->sprite.sh = ft_abs((int)(g_data.y / (d->sprite.tx)));
+		i++;
+	}
 }

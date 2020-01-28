@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 17:32:39 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/27 19:30:09 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,13 @@ typedef struct		s_spt
 	double	*zbuff;
 	double	*dist;
 	int		*order;
+	int		ss;
+	int		sh;
+	double	x;
+	double	y;
+	double	d;
+	double	tx;
+	double	ty;
 }					t_spt;
 
 typedef struct		s_sp
