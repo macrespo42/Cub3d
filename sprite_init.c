@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/28 20:13:38 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/29 19:48:51 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,29 @@ static void		bubble_sort(t_draw *d, int length)
 	}
 }
 
+int				sprite_position(t_draw *d, double dx, double dy, double ds)
+{
+	double	angle;
+
+	dx = (dx - d->cam.x) / ds;
+	dy = (dy - d->cam.y) / ds;
+	if (dy <= 0)
+		angle = acos(dx) * 180 / M_PI;
+	else
+		angle = 360 - acos(dx) * 180 / M_PI;
+	angle = d->cam.a - angle + 33;
+	if (angle >= 180)
+		angle -= 360;
+	else if (angle <= -180)
+		angle += 360;
+	return (angle * g_data.x / 66);
+}
+
 void			sort_sprites(t_draw *d)
 {
 	int		i;
 	double	dist;
+	int		pos;
 
 	dist = hypot(d->cam.d_x, d->cam.d_y);
 	if (d->cam.d_y <= 0)
@@ -92,7 +111,8 @@ void			sort_sprites(t_draw *d)
 	i = 0;
 	while (i < d->cam.s_nb)
 	{
-		printf("sprite dist : [%f]\n", d->spr[i].d);
+		pos = sprite_position(d, d->spr[i].x, d->spr[i].y, d->spr[i].d);
+		//sprite_draw(d, pos, dist);
 		i++;
 	}
 }
