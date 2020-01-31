@@ -6,11 +6,11 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 12:53:11 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/01/31 17:06:41 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "cub3d.h"
 
 static int		p_atoi(const char *str, int *pos)
 {
@@ -51,12 +51,17 @@ void			parse_color(const char *s, int pos)
 		g_data.c = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
 }
 
-unsigned int	**parse_path(const char *s, int pos)
+unsigned int	**parse_path(const char *s, int pos, unsigned int **tex)
 {
 	char	*path;
 	int		i;
 	int		size_alloc;
 
+	if (tex != NULL)
+	{
+		perror("Error double texture");
+		close_window(1);
+	}
 	size_alloc = 0;
 	while (ft_isspace(s[pos]) && s[pos])
 		pos++;
@@ -67,11 +72,7 @@ unsigned int	**parse_path(const char *s, int pos)
 		return (NULL);
 	i = 0;
 	while (s[pos])
-	{
-		path[i] = s[pos];
-		i++;
-		pos++;
-	}
+		path[i++] = s[pos++];
 	path[i] = '\0';
 	return (load_xpm(path));
 }
