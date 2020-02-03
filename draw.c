@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/28 19:58:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:28:45 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,40 @@ void				draw(t_draw *d_infos)
 	{
 		ray(d_infos);
 		range = get_range(d_infos);
-		sort_sprites(d_infos);
 		d_infos->ray.i = get_column(d_infos, d_infos->ray.i, range);
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
+	sort_sprites(d_infos);
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, d_infos->img.ptr, 0, 0);
 	ft_memdel(d_infos->img.ptr);
 	ft_memdel(d_infos->img.grid);
+}
+
+void			sprite_draw(t_draw *d, int loc, double dist)
+{
+	unsigned int	col;
+	double			size;
+	int				index;
+	int				i;
+	int				j;
+
+	size = g_data.y / dist / 2;
+	loc = loc - size / 2;
+	j = 0;
+	i = 0;
+	while (i < size)
+	{
+		while ((loc + i >= 0 && loc + i < g_data.x) &&
+				(j < size && d->stk[loc + i] > dist))
+		{
+			col = 64 * floor(64 * (double)j / size);
+			col = g_data.s[col][(int)((double)i / size * 64)];
+			index = loc + i + (g_data.y / 2 + j) * g_data.x;
+			if (index < g_data.x * g_data.y && col != VOID_COLOR)
+				d->img.grid[index] = col;
+			j++;
+		}
+		i++;
+		j = 0;
+	}
 }

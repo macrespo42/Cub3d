@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/14 15:53:06 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/23 12:56:51 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:43:12 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ static void	find_hit(t_draw *d)
 	else
 		d->hit.wall_dist = ft_abs(
 			(d->hit.map_y - d->ray.y + (1 - d->hit.step_y) / 2) / d->ray.d_y);
+	d->stk[d->ray.i] = d->hit.wall_dist;
 }
 
 double		get_range(t_draw *d)

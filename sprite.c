@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_init.c                                      :+:      :+:    :+:   */
+/*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 13:41:32 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:32:26 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ static void		spr_pos(t_draw *d)
 
 int				sprite_init(t_draw *d)
 {
-
+	if (!(d->stk = malloc(sizeof(double) * g_data.x)))
+		return (0);
 	if (!(d->spr = malloc(sizeof(t_spr) * d->cam.s_nb)))
 		return (0);
 	spr_pos(d);
@@ -112,26 +113,7 @@ void			sort_sprites(t_draw *d)
 	while (i < d->cam.s_nb)
 	{
 		pos = sprite_position(d, d->spr[i].x, d->spr[i].y, d->spr[i].d);
-		//sprite_draw(EZ DRAW TOUT FDP);
+		sprite_draw(d, pos, dist);
 		i++;
 	}
 }
-
-// void	sprite_draw(t_draw *d)
-// {
-// 	int		i;
-// 	int		j;
-//
-// 	i = 0;
-// 	while (i < 64)
-// 	{
-// 		j = 0;
-// 		while (j < 64)
-// 		{
-// 			// d->img.grid[??] = ??color??;
-// 			j++;
-// 		}
-// 	}
-// }
-
-// le chemin du bois

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 15:13:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:19:59 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define LEFT 123
 # define RIGHT 124
 # define TURN 0.072
+# define VOID_COLOR 0xFF000000
 
 typedef struct		s_img
 {
@@ -99,6 +100,7 @@ typedef struct		s_draw
 	t_ray	ray;
 	t_hit	hit;
 	t_spr	*spr;
+	double	*stk;
 	double	wall_x;
 	double	tex_x;
 	double	tex_y;
@@ -110,6 +112,7 @@ double				get_range(t_draw *d);
 int					close_window(int error);
 int					get_column(t_draw *d, int column, int size_wall);
 int					key_hook(int key, void *arg);
+void				sprite_draw(t_draw *d, int loc, double dist);
 int					sprite_init(t_draw *d);
 int					sprite_position(t_draw *d, double dx, double dy, double ds);
 t_cam				cam_infos(void);
