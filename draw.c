@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 18:28:45 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:22:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void			sprite_draw(t_draw *d, int loc, double dist)
 		while ((loc + i >= 0 && loc + i < g_data.x) &&
 				(j < size && d->stk[loc + i] > dist))
 		{
-			col = 64 * floor(64 * (double)j / size);
+			col = floor(64 * (double)j / size);
 			col = g_data.s[col][(int)((double)i / size * 64)];
 			index = loc + i + (g_data.y / 2 + j) * g_data.x;
 			if (index < g_data.x * g_data.y && col != VOID_COLOR)
