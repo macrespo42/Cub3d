@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/29 19:48:51 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 13:41:32 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,26 @@ void			sort_sprites(t_draw *d)
 	while (i < d->cam.s_nb)
 	{
 		pos = sprite_position(d, d->spr[i].x, d->spr[i].y, d->spr[i].d);
-		//sprite_draw(d, pos, dist);
+		//sprite_draw(EZ DRAW TOUT FDP);
 		i++;
 	}
 }
+
+// void	sprite_draw(t_draw *d)
+// {
+// 	int		i;
+// 	int		j;
+//
+// 	i = 0;
+// 	while (i < 64)
+// 	{
+// 		j = 0;
+// 		while (j < 64)
+// 		{
+// 			// d->img.grid[??] = ??color??;
+// 			j++;
+// 		}
+// 	}
+// }
+
+// le chemin du bois

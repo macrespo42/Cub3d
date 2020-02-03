@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/29 20:00:53 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/03 15:13:26 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@
 # define D 2
 # define LEFT 123
 # define RIGHT 124
-# define TURN 0.05
-# define FOV 33
+# define TURN 0.072
 
 typedef struct		s_img
 {
