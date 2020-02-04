@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 19:22:34 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/04 17:45:06 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void				draw(t_draw *d_infos)
 	ft_memdel(d_infos->img.grid);
 }
 
-void			sprite_draw(t_draw *d, int loc, double dist)
+void				sprite_draw(t_draw *d, int loc, double dist)
 {
 	unsigned int	col;
 	double			size;

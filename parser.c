@@ -6,13 +6,13 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/31 17:03:17 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/04 17:43:46 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int		data_init()
+static int		data_init(void)
 {
 	g_data.no = NULL;
 	g_data.so = NULL;
@@ -37,15 +37,15 @@ static void		which_data(const char *line)
 		g_data.y = g_data.y > 1400 ? 1400 : g_data.y;
 	}
 	else if (line[i] == 'N' && line[i + 1] == 'O')
-		g_data.no = parse_path(line, i + 2,g_data.no);
+		g_data.no = parse_path(line, i + 2, g_data.no);
 	else if (line[i] == 'S' && line[i + 1] == 'O')
-		g_data.so = parse_path(line, i + 2,g_data.so);
+		g_data.so = parse_path(line, i + 2, g_data.so);
 	else if (line[i] == 'W' && line[i + 1] == 'E')
-		g_data.we = parse_path(line, i + 2,g_data.we);
+		g_data.we = parse_path(line, i + 2, g_data.we);
 	else if (line[i] == 'E' && line[i + 1] == 'A')
-		g_data.ea = parse_path(line, i + 2,g_data.ea);
+		g_data.ea = parse_path(line, i + 2, g_data.ea);
 	else if (line[i] == 'S')
-		g_data.s = parse_path(line, i + 1,g_data.s);
+		g_data.s = parse_path(line, i + 1, g_data.s);
 	else if (line[i] == 'F' || line[i] == 'C')
 		parse_color(line, i);
 }
