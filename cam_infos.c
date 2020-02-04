@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 11:23:44 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/27 11:38:50 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/04 15:24:15 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ static void			plane_init(char c, t_cam *cam)
 {
 	if (c == 'N')
 	{
-		cam->p_x = 1;
+		cam->p_x = 0.66;
 		cam->p_y = 0;
 	}
 	else if (c == 'S')
 	{
-		cam->p_x = -1;
+		cam->p_x = -0.66;
 		cam->p_y = 0;
 	}
 	else if (c == 'W')
 	{
 		cam->p_x = 0;
-		cam->p_y = -1;
+		cam->p_y = -0.66;
 	}
 	else
 	{
 		cam->p_x = 0;
-		cam->p_y = 1;
+		cam->p_y = 0.66;
 	}
 }
 

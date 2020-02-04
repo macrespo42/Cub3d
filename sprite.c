@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 17:32:26 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/04 15:27:03 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void			sort_sprites(t_draw *d)
 	if (d->cam.d_y <= 0)
 		d->cam.a = acos(d->cam.d_x / dist) * 180 / M_PI;
 	else
-		d->cam.a = 360 - acos(d->cam.d_x) * 180 / M_PI;
+		d->cam.a = 360 - acos(d->cam.d_x / dist) * 180 / M_PI;
 	i = 0;
 	while (i < d->cam.s_nb)
 	{
@@ -113,7 +113,7 @@ void			sort_sprites(t_draw *d)
 	while (i < d->cam.s_nb)
 	{
 		pos = sprite_position(d, d->spr[i].x, d->spr[i].y, d->spr[i].d);
-		sprite_draw(d, pos, dist);
+		sprite_draw(d, pos, d->spr[i].d);
 		i++;
 	}
 }
