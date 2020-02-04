@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 17:43:46 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:11:47 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,8 @@ int				parser(const char *file)
 	{
 		ret = get_next_line(fd, &line);
 		which_data(line);
-		if (line[0] == '1')
-		{
+		if (line[0] == '1' || line[0] == '0' || line[0] == '2')
 			g_data.map = parse_map(line, &size_map);
-			if (line[0] != '1')
-			{
-				ft_memdel(g_data.map);
-				g_data.map = NULL;
-			}
-		}
 		ft_memdel(line);
 	}
 	return (ret);
