@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 18:58:31 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:53:41 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,34 @@
 t_mlx		g_mlx;
 t_data		g_data;
 
+static int		check_cam(int y)
+{
+	int		x;
+	int		pos;
+
+	pos = 0;
+	x = 0;
+	while (g_data.map[y][x])
+	{
+		if (g_data.map[y][x] == 'N' || g_data.map[y][x] == 'S'
+		|| g_data.map[y][x] == 'W' || g_data.map[y][x] == 'E')
+			pos++;
+		x++;
+	}
+	return (pos);
+}
+
 static int		check_map(void)
 {
 	int		x;
 	int		y;
+	int		pos;
 
 	y = 0;
+	pos = 0;
 	while (g_data.map[y])
 	{
+		pos += check_cam(y);
 		if (y == g_data.y_len || y == 0)
 		{
 			x = 0;
@@ -37,7 +57,7 @@ static int		check_map(void)
 			return (0);
 		y++;
 	}
-	return (1);
+	return (pos);
 }
 
 int				main(int ac, char **av)
@@ -51,7 +71,7 @@ int				main(int ac, char **av)
 	if (!(g_mlx.win = mlx_new_window(g_mlx.ptr, g_data.x, g_data.y, NAME)))
 		return (EXIT_FAILURE);
 	d_infos.cam = cam_infos();
-	if (check_map() == 0)
+	if (check_map() != 1)
 	{
 		perror("Map error");
 		close_window(1);
