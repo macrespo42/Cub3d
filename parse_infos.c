@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 17:22:39 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:55:59 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,12 @@ unsigned int	**parse_path(const char *s, int pos, unsigned int **tex)
 	return (load_xpm(path));
 }
 
-int				parse_resolution(const char *s, int *pos)
+int				parse_resolution(const char *s, int *pos, int r)
 {
 	int		res;
 
+	if (r > -1)
+		error_box("Resolution already defined");
 	res = 0;
 	if (*pos == 0 || (s[*pos] >= '0' && s[*pos] <= '9'))
 		(*pos)++;

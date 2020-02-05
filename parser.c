@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 17:37:14 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 18:54:38 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int		data_init(void)
 	g_data.s = NULL;
 	g_data.f = -1;
 	g_data.c = -1;
+	g_data.x = -1;
+	g_data.y = -1;
 	return (0);
 }
 
@@ -40,9 +42,9 @@ static void		which_data(const char *line)
 		i++;
 	if (line[i] == 'R')
 	{
-		g_data.x = parse_resolution(line, &i);
+		g_data.x = parse_resolution(line, &i, g_data.x);
 		g_data.x = g_data.x > 2560 ? 2560 : g_data.x;
-		g_data.y = parse_resolution(line, &i);
+		g_data.y = parse_resolution(line, &i, g_data.y);
 		g_data.y = g_data.y > 1400 ? 1400 : g_data.y;
 	}
 	else if (line[i] == 'N' && line[i + 1] == 'O')
