@@ -6,24 +6,31 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 18:56:42 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 20:07:30 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void		free_textures(void)
+static void		free_datas(void)
 {
-	if (g_data.no != NULL)
-		ft_memdel(g_data.no);
-	if (g_data.so != NULL)
-		ft_memdel(g_data.so);
-	if (g_data.we != NULL)
-		ft_memdel(g_data.we);
-	if (g_data.ea != NULL)
-		ft_memdel(g_data.ea);
-	if (g_data.s != NULL)
-		ft_memdel(g_data.s);
+	int		y;
+
+	y = 0;
+	if (g_data.map)
+	{
+		while (g_data.map[y])
+		{
+			ft_memdel(g_data.map[y]);
+			y++;
+		}
+	}
+	ft_memdel(g_data.map);
+	ft_memdel(g_data.no);
+	ft_memdel(g_data.so);
+	ft_memdel(g_data.we);
+	ft_memdel(g_data.ea);
+	ft_memdel(g_data.s);
 }
 
 int				close_window(int error)
@@ -47,7 +54,7 @@ int				close_window(int error)
 			ft_memdel(g_data.s[y]);
 		y++;
 	}
-	free_textures();
+	free_datas();
 	ft_memdel(g_mlx.ptr);
 	exit(error);
 	return (0);
