@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 20:07:30 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:43:29 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,23 @@ int				close_window(int error)
 	return (0);
 }
 
+static void		free_sprites(t_draw *d)
+{
+	if (d->s_init == 1)
+	{
+		ft_memdel(d->spr);
+		ft_memdel(d->stk);
+	}
+}
+
 int				key_hook(int key, void *arg)
 {
 	(void)arg;
 	if (key == ESC)
+	{
 		close_window(0);
+		free_sprites(arg);
+	}
 	else if (key == W)
 		vertical_move(W, arg);
 	else if (key == S)

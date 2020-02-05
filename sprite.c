@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 11:57:02 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 19:16:33 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:40:12 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int				sprite_init(t_draw *d)
 		return (0);
 	if (!(d->spr = malloc(sizeof(t_spr) * d->cam.s_nb)))
 		return (0);
+	d->s_init = 1;
 	spr_pos(d);
 	return (1);
 }

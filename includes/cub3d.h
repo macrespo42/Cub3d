@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 17:21:01 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:39:13 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct		s_draw
 	double	tex_y;
 	int		start;
 	int		end;
+	int		s_init;
 }					t_draw;
 
 double				get_range(t_draw *d);

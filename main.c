@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 18:48:59 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 21:40:30 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int				main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (!(g_mlx.win = mlx_new_window(g_mlx.ptr, g_data.x, g_data.y, NAME)))
 		return (EXIT_FAILURE);
+	d_infos.s_init = 0;
 	d_infos.cam = cam_infos();
 	if (check_map() != 1)
 		error_box("map error");
