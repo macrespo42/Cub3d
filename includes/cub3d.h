@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/03 17:19:59 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:21:01 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int					sprite_position(t_draw *d, double dx, double dy, double ds);
 t_cam				cam_infos(void);
 unsigned int		wall_orient(t_draw *d);
 void				draw(t_draw *d_infos);
+void				error_box(char *str);
 void				horizontal_move(int event, t_draw *infos);
 void				ray(t_draw *d);
 void				rotate(int event, t_draw *d);

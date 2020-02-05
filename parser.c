@@ -6,19 +6,28 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 19:11:47 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:37:14 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void			error_box(char *str)
+{
+	perror(str);
+	close_window(1);
+}
+
 static int		data_init(void)
 {
+	g_data.map = NULL;
 	g_data.no = NULL;
 	g_data.so = NULL;
 	g_data.we = NULL;
 	g_data.ea = NULL;
 	g_data.s = NULL;
+	g_data.f = -1;
+	g_data.c = -1;
 	return (0);
 }
 
@@ -27,7 +36,7 @@ static void		which_data(const char *line)
 	int		i;
 
 	i = 0;
-	while (line[i] == ' ')
+	while (ft_isspace(line[i]))
 		i++;
 	if (line[i] == 'R')
 	{
@@ -61,7 +70,7 @@ static int		check_cubext(const char *file)
 			return (1);
 	}
 	else
-		perror("Error bad extension ");
+		perror("Error bad extension");
 	return (-1);
 }
 

@@ -1,0 +1,8 @@
+R 800 400
+NO ./script/maps/textures/sponge.xpm
+SO ./script/maps/textures/sponge.xpm
+WE ./script/maps/textures/sponge.xpm
+EA ./script/maps/textures/sponge.xpm
+S ./script/maps/textures/sponge.xpm
+C 225,30,0
+F 225,30,0

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 14:04:45 by macrespo          #+#    #+#             */
-/*   Updated: 2020/01/31 17:06:41 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:22:39 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int		p_atoi(const char *str, int *pos)
 	res = 0;
 	while (ft_isspace(str[*pos]) && str[*pos])
 		(*pos)++;
+	if (str[*pos] == '-')
+		return (-1);
 	while (str[*pos] >= 48 && str[*pos] <= 57)
 	{
 		res = res * 10 + str[*pos] - '0';
@@ -43,12 +45,16 @@ void			parse_color(const char *s, int pos)
 	{
 		pos++;
 		rgb[i] = p_atoi(s, &pos);
+		if (rgb[i] < 0 || rgb[i] > 255)
+			error_box("Invalid color");
 		i++;
 	}
-	if (c == 'F')
+	if (c == 'F' && g_data.f == -1)
 		g_data.f = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
-	if (c == 'C')
+	else if (c == 'C' && g_data.c == -1)
 		g_data.c = (int)pow(256, 2) * rgb[0] + 256 * rgb[1] + rgb[2];
+	else
+		error_box("Double color");
 }
 
 unsigned int	**parse_path(const char *s, int pos, unsigned int **tex)
@@ -58,10 +64,7 @@ unsigned int	**parse_path(const char *s, int pos, unsigned int **tex)
 	int		size_alloc;
 
 	if (tex != NULL)
-	{
-		perror("Error double texture");
-		close_window(1);
-	}
+		error_box("Error double texture");
 	size_alloc = 0;
 	while (ft_isspace(s[pos]) && s[pos])
 		pos++;
@@ -92,5 +95,7 @@ int				parse_resolution(const char *s, int *pos)
 		(*pos)++;
 	}
 	(*pos)--;
+	if (res <= 0)
+		error_box("Invalid resolution");
 	return (res);
 }

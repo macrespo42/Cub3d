@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 14:53:41 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/05 17:39:02 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,20 @@ static int		check_map(void)
 	return (pos);
 }
 
+static int		check_parsing(void)
+{
+	if (!g_data.no || !g_data.so || !g_data.we || !g_data.ea || !g_data.s)
+		return (0);
+	if (g_data.f == -1 || g_data.c == -1)
+		return (0);
+	return (1);
+}
+
 int				main(int ac, char **av)
 {
 	t_draw	d_infos;
 
-	if (ac < 2 || ac > 3)
+	if (ac != 2)
 		return (EXIT_FAILURE);
 	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1)
 		return (EXIT_FAILURE);
@@ -72,10 +81,9 @@ int				main(int ac, char **av)
 		return (EXIT_FAILURE);
 	d_infos.cam = cam_infos();
 	if (check_map() != 1)
-	{
-		perror("Map error");
-		close_window(1);
-	}
+		error_box("map error");
+	if (check_parsing() == 0)
+		error_box(".cub missed infos");
 	sprite_init(&d_infos);
 	draw(&d_infos);
 	mlx_hook(g_mlx.win, 2, 0, key_hook, &d_infos);
