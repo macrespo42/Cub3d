@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:05:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 15:23:35 by cclaude          ###   ########.fr       */
+/*   Updated: 2020/02/06 16:03:44 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	vertical_move(int event, t_draw *infos)
 	infos->cam.y += infos->cam.d_y * speed;
 	if (g_data.map[(int)floor(infos->cam.y)][(int)floor(infos->cam.x)] == '1')
 		infos->cam.y -= infos->cam.d_y * speed;
-	draw(infos);
+	draw(infos, 0);
 }
 
 void	horizontal_move(int event, t_draw *infos)
@@ -45,7 +45,7 @@ void	horizontal_move(int event, t_draw *infos)
 	infos->cam.y += infos->cam.d_x * speed;
 	if (g_data.map[(int)floor(infos->cam.y)][(int)floor(infos->cam.x)] == '1')
 		infos->cam.y -= infos->cam.d_x * speed;
-	draw(infos);
+	draw(infos, 0);
 }
 
 void	rotate(int event, t_draw *d)
@@ -65,5 +65,5 @@ void	rotate(int event, t_draw *d)
 	d->cam.d_y = old_dx * sin(speed) + d->cam.d_y * cos(speed);
 	d->cam.p_x = d->cam.p_x * cos(speed) - d->cam.p_y * sin(speed);
 	d->cam.p_y = old_px * sin(speed) + d->cam.p_y * cos(speed);
-	draw(d);
+	draw(d, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/04 17:45:06 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:55:37 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int					get_column(t_draw *d, int column, int wall_size)
 	return (column);
 }
 
-void				draw(t_draw *d_infos)
+void				draw(t_draw *d_infos, int save)
 {
 	double	range;
 
@@ -94,6 +94,8 @@ void				draw(t_draw *d_infos)
 		d_infos->ray.i = (d_infos->ray.i - (g_data.x * g_data.y)) + 1;
 	}
 	sort_sprites(d_infos);
+	if (save == 1)
+		create_bmp(d_infos);
 	mlx_put_image_to_window(g_mlx.ptr, g_mlx.win, d_infos->img.ptr, 0, 0);
 	ft_memdel(d_infos->img.ptr);
 	ft_memdel(d_infos->img.grid);

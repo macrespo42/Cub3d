@@ -21,6 +21,7 @@ SRC = main.c \
 	move.c \
 	load_xpm.c \
 	sprite.c \
+	save.c \
 	parser.c
 
 OBJ = $(SRC:.c=.o)

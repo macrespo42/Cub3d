@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 09:46:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 21:40:30 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:01:42 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ int				main(int ac, char **av)
 {
 	t_draw	d_infos;
 
-	if (ac != 2)
+	if (ac != 2 && ac != 3)
+		return (EXIT_FAILURE);
+	if (ac == 3 && ft_strncmp(av[2], "-save", ft_strlen(av[2])) != 0)
 		return (EXIT_FAILURE);
 	if ((g_mlx.ptr = mlx_init()) == NULL || parser(av[1]) == -1)
 		return (EXIT_FAILURE);
@@ -86,7 +88,10 @@ int				main(int ac, char **av)
 	if (check_parsing() == 0)
 		error_box(".cub missed infos");
 	sprite_init(&d_infos);
-	draw(&d_infos);
+	if (ac == 3 && ft_strncmp(av[2], "-save", ft_strlen(av[2])) == 0)
+		draw(&d_infos, 1);
+	else
+		draw(&d_infos, 0);
 	mlx_hook(g_mlx.win, 2, 0, key_hook, &d_infos);
 	mlx_hook(g_mlx.win, 17, 0, close_window, NULL);
 	mlx_loop(g_mlx.ptr);
