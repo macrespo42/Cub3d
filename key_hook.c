@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 15:14:24 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 21:43:29 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:14:36 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int				close_window(int error)
 	}
 	free_datas();
 	ft_memdel(g_mlx.ptr);
+	while (1)
+		;
 	exit(error);
 	return (0);
 }
@@ -74,8 +76,8 @@ int				key_hook(int key, void *arg)
 	(void)arg;
 	if (key == ESC)
 	{
-		close_window(0);
 		free_sprites(arg);
+		close_window(0);
 	}
 	else if (key == W)
 		vertical_move(W, arg);

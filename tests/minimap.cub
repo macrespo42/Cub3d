@@ -1,12 +1,13 @@
-R 800 400
-R 900 300
-NO ./script/maps/textures/sponge.xpm
-SO ./script/maps/textures/sponge.xpm
-WE ./script/maps/textures/sponge.xpm
-EA ./script/maps/textures/sponge.xpm
-S ./script/maps/textures/sponge.xpm
-F 220,100,0
-C 225,30,0
+R 1080 720
+NO ./textures/grey.xpm
+SO ./textures/blue.xpm
+WE ./textures/brick.xpm
+EA ./textures/wood.xpm
+
+S ./textures/barrel.xpm
+F 135,206,142
+C 168,119,90
+
 1 1 1 1 1 1
 1 2 0 0 2 1
 1 0 0 0 0 1
