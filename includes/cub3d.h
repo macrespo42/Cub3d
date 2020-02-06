@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 14:57:38 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/06 15:59:04 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/06 21:51:20 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define VOID_COLOR 0xFF000000
 # define HEADER_SIZE 14
 # define HEADER_INFO_SIZE 40
+# define COLOR_BUFFER 4
 
 typedef struct		s_img
 {
@@ -128,6 +129,7 @@ void				ray(t_draw *d);
 void				rotate(int event, t_draw *d);
 void				sort_sprites(t_draw *d);
 void				vertical_move(int event, t_draw *infos);
+void				write_img(int fd, t_draw *d);
 void				write_infos_header(int fd);
 void				write_header(int fd);
 extern t_mlx		g_mlx;

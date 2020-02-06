@@ -1,4 +1,4 @@
-R 1080 720
+R 8080 720
 NO ./textures/grey.xpm
 SO ./textures/blue.xpm
 WE ./textures/brick.xpm
@@ -6,7 +6,7 @@ EA ./textures/wood.xpm
 
 S ./textures/barrel.xpm
 F 135,206,142
-C 168,119,90
+C 148,119,90
 
 1 1 1 1 1 1
 1 2 0 0 2 1
