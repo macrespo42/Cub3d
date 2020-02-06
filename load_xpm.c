@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 15:54:20 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/05 18:57:09 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:01:30 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static t_img	file_to_array(char *path)
 	t_img	img;
 
 	img.ptr = mlx_xpm_file_to_image(g_mlx.ptr, path, &img.w, &img.h);
+	ft_memdel(path);
 	if (img.ptr == NULL || img.w != 64 || img.h != 64)
 		error_box("Bad xpm");
 	img.grid =
@@ -49,5 +50,6 @@ unsigned int	**load_xpm(char *path)
 		}
 		y++;
 	}
+	ft_memdel(img.grid);
 	return (color);
 }
