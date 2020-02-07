@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:07:56 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/06 12:12:01 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/07 12:28:47 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int		check_cubext(const char *file)
 			return (1);
 	}
 	else
-		perror("Error bad extension");
+		error_box("Error bad extension");
 	return (-1);
 }
 
@@ -98,5 +98,7 @@ int				parser(const char *file)
 		}
 		ft_memdel(line);
 	}
+	if (g_data.map == NULL)
+		error_box("No map");
 	return (ret);
 }
