@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 12:29:00 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/07 15:31:47 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:35:34 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ unsigned int		wall_orient(t_draw *d)
 	unsigned int	color;
 
 	if (d->hit.side == 0 && d->ray.d_x > 0)
-		color = g_data.so[(int)d->tex_y][(int)d->tex_x];
-	if (d->hit.side == 0 && d->ray.d_x < 0)
-		color = g_data.no[(int)d->tex_y][(int)d->tex_x];
-	if (d->hit.side == 1 && d->ray.d_y < 0)
-		color = g_data.we[(int)d->tex_y][(int)d->tex_x];
-	if (d->hit.side == 1 && d->ray.d_y > 0)
 		color = g_data.ea[(int)d->tex_y][(int)d->tex_x];
+	if (d->hit.side == 0 && d->ray.d_x < 0)
+		color = g_data.we[(int)d->tex_y][(int)d->tex_x];
+	if (d->hit.side == 1 && d->ray.d_y < 0)
+		color = g_data.no[(int)d->tex_y][(int)d->tex_x];
+	if (d->hit.side == 1 && d->ray.d_y > 0)
+		color = g_data.so[(int)d->tex_y][(int)d->tex_x];
 	return (color);
 }
 
