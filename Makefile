@@ -6,9 +6,9 @@ CFLAGS = -Wall -Wextra -Werror -I includes/
 
 HEADER = cube3d.h
 
-LXFLAGS = -framework OpenGL -framework AppKit
+LXFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
 
-MLX = minilibx_opengl
+MLX = libmlx.dylib
 
 SRC = main.c \
 	key_hook.c \
@@ -30,14 +30,15 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C libft/
-	@make -C minilibx_opengl/
-	$(CC) $(OBJ) -o $(NAME) -L libft -lft -L $(MLX) -lmlx $(LXFLAGS)
+	@make -C mlx_beta/
+	cp mlx_beta/$(MLX) .
+	$(CC) $(OBJ) -o $(NAME) -L libft -lft $(LXFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(MLX)
 
 fclean: clean
 	rm -f $(NAME)

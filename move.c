@@ -6,7 +6,7 @@
 /*   By: macrespo <macrespo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 15:05:12 by macrespo          #+#    #+#             */
-/*   Updated: 2020/02/06 16:03:44 by macrespo         ###   ########.fr       */
+/*   Updated: 2020/02/10 15:23:41 by macrespo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	vertical_move(int event, t_draw *infos)
 	infos->cam.y += infos->cam.d_y * speed;
 	if (g_data.map[(int)floor(infos->cam.y)][(int)floor(infos->cam.x)] == '1')
 		infos->cam.y -= infos->cam.d_y * speed;
+	if ((int)infos->cam.y > g_data.y_len)
+		infos->cam.y = g_data.y_len - 1;
+	if ((int)infos->cam.x > g_data.x_len)
+		infos->cam.x = g_data.x_len - 1;
 	draw(infos, 0);
 }
 
