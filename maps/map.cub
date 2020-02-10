@@ -5,8 +5,8 @@ WE ./textures/brick.xpm
 EA ./textures/wood.xpm
 
 S ./textures/barrel.xpm
-F 135,206,142
-C 168,119,90
+F 160,82,65
+C 53,81,92
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
